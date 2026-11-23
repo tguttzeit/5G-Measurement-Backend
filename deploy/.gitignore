@@ -1,0 +1,7 @@
+# Ignore local overrides and sensitive files
+*.local
+*.override
+.env
+*.pem
+*.key
+*.crt

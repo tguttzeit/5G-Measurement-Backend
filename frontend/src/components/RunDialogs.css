@@ -1,0 +1,15 @@
+.run-dialog__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: var(--space-3) 0;
+}
+
+.run-dialog__fields p {
+  margin: 0;
+}
+
+.run-dialog__hint {
+  font-size: 0.875rem;
+  color: var(--text);
+}

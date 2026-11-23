@@ -1,0 +1,153 @@
+.command-status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.command-status {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.command-status__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.command-status__name {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.command-status__meta {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.command-status__state {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.command-status__state--success,
+.command-status__state--promoted,
+.command-status__state--received {
+  color: var(--success-text);
+}
+
+.command-status__state--failed,
+.command-status__state--not_applicable,
+.command-status__state--removed,
+.command-status__state--expired {
+  color: var(--danger-text);
+}
+
+.command-status__state--delivered {
+  color: var(--accent);
+}
+
+.command-status__error {
+  margin: var(--space-2) 0 0;
+  font-size: 0.875rem;
+  color: var(--danger-text);
+}
+
+.command-timeline {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+}
+
+.command-timeline__step {
+  position: relative;
+  flex: 1 0 auto;
+  min-width: 5.5rem;
+  padding-top: 1.25rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+}
+
+/* The dot sits on top of the step, the connector runs from it to the next step's dot. */
+.command-timeline__step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.command-timeline__step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 0.3125rem;
+  left: 1rem;
+  right: 0.25rem;
+  height: 2px;
+  background: var(--border);
+}
+
+.command-timeline__step--done {
+  color: inherit;
+}
+
+.command-timeline__step--done::before {
+  background: var(--success);
+}
+
+.command-timeline__step--linked:not(:last-child)::after {
+  background: var(--success);
+}
+
+/* Waiting for this step: hollow dot, in the accent colour. */
+.command-timeline__step--current {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.command-timeline__step--current::before {
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.command-timeline__step--danger {
+  color: var(--danger-text);
+  font-weight: 600;
+}
+
+.command-timeline__step--danger::before {
+  background: var(--danger);
+}
+
+.command-timeline__time {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* A step counted up to (shutdown-now going silent): the dot and label fade from grey to green. */
+.command-timeline__step--progress {
+  --progress-color: color-mix(in srgb, var(--success) calc(var(--progress) * 100%), var(--muted));
+  color: var(--progress-color);
+}
+
+.command-timeline__step--progress::before {
+  border-color: var(--progress-color);
+  background: color-mix(in srgb, var(--success) calc(var(--progress) * 100%), var(--bg));
+}

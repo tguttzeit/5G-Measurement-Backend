@@ -1,0 +1,16 @@
+.login-menu__trigger {
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.login-menu__trigger:hover {
+  color: var(--text-h);
+}
+
+.login-menu__panel {
+  width: min(260px, calc(100vw - 56px));
+}

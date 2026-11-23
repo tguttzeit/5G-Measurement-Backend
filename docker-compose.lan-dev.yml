@@ -1,0 +1,76 @@
+# Self-contained dev stack for testing a real device on the local network.
+#
+# Same shape as production - Postgres, FastAPI, the built frontend, and Caddy in front - but on its
+# own project name, volumes and port, with Caddy issuing a certificate from its own local CA
+# (`tls internal`) instead of Let's Encrypt, because the device only talks https://.
+#
+# Use it with -f so the default docker-compose.yml/override.yml are not merged in:
+#   DEV_HOST=192.168.1.50 docker compose -f docker-compose.lan-dev.yml up -d --build
+# or through scripts/lan-dev.sh, which also seeds the test device and a superuser.
+name: 5gm-lan-dev
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lan-dev-only
+      POSTGRES_DB: measurement_backend
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://postgres:lan-dev-only@postgres:5432/measurement_backend
+      SECRET_KEY: lan-dev-only-secret-key-not-for-production
+      # Lets scripts/seed_dev_device.py run; it refuses ENVIRONMENT=production.
+      ENVIRONMENT: development
+      # A device test session runs for hours; the default 30 min logged the dashboard out mid-test.
+      ACCESS_TOKEN_EXPIRE_MINUTES: 480
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./scripts:/app/scripts:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health').raise_for_status()"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    depends_on:
+      - backend
+
+  caddy:
+    image: caddy:2-alpine
+    environment:
+      # The address the device (and your browser) reaches this PC under - a LAN IP or hostname.
+      # It ends up in the certificate, so it has to be the one used in the device's URLs.
+      DEV_HOST: ${DEV_HOST:?set DEV_HOST to this PC's LAN IP or hostname}
+    ports:
+      - "${DEV_PORT:-8443}:8443"
+    volumes:
+      - ./deploy/Caddyfile.lan-dev:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - backend
+      - frontend
+
+volumes:
+  postgres_data:
+  caddy_data:
+  caddy_config:

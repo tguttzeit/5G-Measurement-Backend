@@ -1,0 +1,12 @@
+[Unit]
+Description=Back up the 5G Measurement Backend database daily
+
+[Timer]
+OnCalendar=*-*-* 03:15:00
+RandomizedDelaySec=15min
+# Run a missed backup at the next boot.
+Persistent=true
+Unit=5gm-db-backup.service
+
+[Install]
+WantedBy=timers.target

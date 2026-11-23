@@ -1,0 +1,23 @@
+# Example Flent client config for devices running baseline/RRUL tests
+# against the university server. Copy to ~/.flent/flent.conf or
+# /etc/flent/flent.conf on the device and fill in HOST.
+#
+# The server side (netserver and irtt) is described in the flent server page of the documentation.
+
+[global]
+# Server hostname/IP running netserver + irtt (see
+# scripts/start_flent_server.sh). No trailing slash, no scheme.
+HOST=your-server.example.org
+
+# irtt server port started by scripts/start_flent_server.sh.
+IRTT_PORT=8080
+
+[baseline]
+# Single-stream throughput/latency baseline, netperf-driven.
+test_name=tcp_nup
+length=30
+
+[rrul]
+# Full RRUL: saturating up/down streams plus latency-under-load via irtt.
+test_name=rrul_be
+length=60

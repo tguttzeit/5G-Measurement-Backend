@@ -1,0 +1,112 @@
+.map-export-row {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.map-wrapper {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.map-wrapper:fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+
+.map-fullscreen-toggle {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  /* Above Leaflet's own panes/controls (it caps out at z-index: 1000). */
+  z-index: 1001;
+}
+
+@media (max-width: 480px) {
+  .map-export-row .ui-button {
+    flex: 1 1 auto;
+  }
+}
+
+.map-points-panel {
+  margin-top: var(--space-4);
+}
+
+.map-points-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2);
+}
+
+.map-points-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.map-hint {
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+.map-points-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-3);
+}
+
+.map-points-stats dt {
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.map-points-stats dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.map-opacity-slider {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-top: var(--space-1);
+}
+
+.map-box-drag {
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  border: 2px dashed #3b82f6;
+  background: rgba(59, 130, 246, 0.15);
+}
+
+/* Leaflet has no dark tile set of its own - invert the OSM tiles' lightness/hue back to a dark
+   basemap rather than switching tile providers. Scoped to the tile pane only, so markers,
+   the heatmap layer and controls keep their normal colors. */
+.map-wrapper--dark .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+.map-wrapper--dark .leaflet-bar a {
+  background-color: var(--surface);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.map-wrapper--dark .leaflet-bar a:hover {
+  background-color: var(--surface-2);
+}
+
+.map-wrapper--dark .leaflet-control-attribution {
+  background-color: var(--surface);
+  color: var(--muted);
+}
+
+.map-wrapper--dark .leaflet-control-attribution a {
+  color: var(--text);
+}

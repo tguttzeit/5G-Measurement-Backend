@@ -1,0 +1,975 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "cancel": "Cancel",
+    "sending": "Sending...",
+    "dismissNotification": "Dismiss notification",
+    "notifications": "Notifications",
+    "online": "online",
+    "offline": "offline",
+    "devices": "Devices",
+    "theme": {
+      "label": "Theme",
+      "system": "System",
+      "light": "Light",
+      "dark": "Dark"
+    },
+    "missionType": {
+      "ground": "ground",
+      "drone": "drone"
+    },
+    "metric": {
+      "rsrp": "RSRP",
+      "rsrq": "RSRQ",
+      "sinr": "SINR",
+      "baseline_rtt_ms": "Baseline RTT (ms)",
+      "rtt_under_load_ms": "RTT under load (ms)",
+      "rtt_p99_ms": "RTT p99 (ms)",
+      "download_mbits_s": "Download (Mbit/s)",
+      "upload_mbits_s": "Upload (Mbit/s)"
+    },
+    "requestFailed": "Request to {{path}} failed with status {{status}}"
+  },
+  "time": {
+    "ago": "{{duration}} ago",
+    "unit": {
+      "year": "y",
+      "month": "mo",
+      "day": "d",
+      "hour": "h",
+      "minute": "min",
+      "second": "s"
+    }
+  },
+  "shell": {
+    "appTitle": "5G Network Quality",
+    "login": "Login",
+    "logout": "Logout",
+    "docs": "Documentation",
+    "openUserMenu": "Open user menu",
+    "menu": {
+      "status": "Mission Status",
+      "remoteConfiguration": "Remote Configuration",
+      "runs": "Measurement Runs",
+      "campaigns": "Campaign Management",
+      "testing": "Testing Visualization",
+      "users": "User Management",
+      "changePassword": "Change Password",
+      "settings": "Settings"
+    }
+  },
+  "auth": {
+    "loginTitle": "Login",
+    "sessionExpired": "Your session has expired. Please log in again.",
+    "username": "Username",
+    "password": "Password",
+    "loginButton": "Login",
+    "loggingIn": "Logging in...",
+    "loginFailed": "Login failed",
+    "fetchUserFailed": "Failed to fetch user info",
+    "changePassword": {
+      "title": "Change Password",
+      "intro": "Enter your current password and choose a new one.",
+      "currentPassword": "Current password",
+      "newPassword": "New password",
+      "confirmPassword": "Confirm new password",
+      "mismatch": "New password and confirmation do not match.",
+      "incorrectCurrent": "Current password is incorrect.",
+      "failed": "Failed to change password.",
+      "locked": "Account locked after too many failed attempts. Contact an administrator to reset your password.",
+      "attemptsRemaining_one": "{{count}} attempt remaining.",
+      "attemptsRemaining_other": "{{count}} attempts remaining.",
+      "success": "Password changed successfully.",
+      "submit": "Change Password",
+      "submitting": "Changing..."
+    }
+  },
+  "notifications": {
+    "upload": {
+      "success_one": "Upload successful: {{deviceId}} sent {{count}} point from <origin/>.",
+      "success_other": "Upload successful: {{deviceId}} sent {{count}} points from <origin/>.",
+      "originRun": "run",
+      "originRuns": "runs",
+      "originUnlabeled": "an unlabeled run",
+      "viewInRuns": "View in Runs"
+    },
+    "ack": {
+      "shuttingDown": "{{deviceId}} is shutting down.",
+      "rebooting": "{{deviceId}} is rebooting.",
+      "receivedCommand": "{{deviceId}} received {{command}}.",
+      "failed": "Command failed: {{command}} on {{deviceId}} - {{error}}",
+      "notApplicable": "Command not applicable: {{command}} on {{deviceId}}.",
+      "notApplicableWithReason": "Command not applicable: {{command}} on {{deviceId}} - {{reason}}.",
+      "succeeded": "Command succeeded: {{command}} on {{deviceId}}."
+    },
+    "selftest": {
+      "viewResults": "View self-test results"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "description": "Choose the language of the user interface. The choice is stored in this browser only.",
+      "label": "Interface language",
+      "en": "English",
+      "de": "Deutsch"
+    },
+    "rawRowCap": {
+      "title": "Raw datapoint limit",
+      "description": "Maximum number of raw datapoints a logged-in user's map and latency queries may return. Guests always keep the fixed limit of 5000.",
+      "unlimited": "Unlimited",
+      "limitLabel": "Limit (number of datapoints)",
+      "currentUnlimited": "Currently unlimited.",
+      "currentLimit": "Currently limited to {{value}} datapoints.",
+      "save": "Save",
+      "saving": "Saving...",
+      "loading": "Loading limit...",
+      "loadFailed": "Could not load the raw datapoint limit.",
+      "saved": "Raw datapoint limit saved.",
+      "saveFailed": "Could not save the raw datapoint limit.",
+      "invalid": "Enter a whole number of at least 1."
+    },
+    "shutdownConfirmation": {
+      "title": "Shutdown confirmation",
+      "description": "A shutdown command cannot be confirmed by the device itself. It counts as successful once the device has sent no heartbeat for this long after acknowledging the command.",
+      "modeLabel": "Mode",
+      "modeIntervals": "Heartbeat intervals",
+      "modeSeconds": "Fixed time span",
+      "intervalsLabel": "Heartbeat intervals",
+      "secondsLabel": "Time span (seconds)",
+      "currentIntervals_one": "Currently {{count}} heartbeat interval.",
+      "currentIntervals_other": "Currently {{count}} heartbeat intervals.",
+      "currentSeconds": "Currently a fixed time span of {{value}} s.",
+      "shorterThanHeartbeat": "This time span is shorter than a heartbeat interval ({{interval}} s by default). A device that is still running could be counted as shut down.",
+      "save": "Save shutdown confirmation",
+      "saving": "Saving...",
+      "loading": "Loading shutdown confirmation...",
+      "loadFailed": "Could not load the shutdown confirmation.",
+      "saved": "Shutdown confirmation saved.",
+      "saveFailed": "Could not save the shutdown confirmation.",
+      "invalidIntervals": "Enter a whole number from {{min}} to {{max}}.",
+      "invalidSeconds": "Enter a number from {{min}} to {{max}}."
+    },
+    "notifications": {
+      "title": "Push notifications",
+      "description": "Get a message on your phone or desktop when a measurement box starts, a measurement starts or finishes, new runs are uploaded, or an error occurs. Notifications are off until you enable them, apply to all devices, and are delivered through ntfy.",
+      "loading": "Loading notification settings...",
+      "loadFailed": "Could not load the notification settings.",
+      "enabled": "Send me notifications",
+      "eventsLegend": "Notify me about",
+      "event": {
+        "box_started": "Measurement box started",
+        "measurement_started": "Measurement started",
+        "measurement_finished": "Measurement finished",
+        "runs_uploaded": "New runs uploaded",
+        "error": "Error"
+      },
+      "save": "Save notification settings",
+      "saved": "Notification settings saved.",
+      "saveFailed": "Could not save the notification settings.",
+      "subscribeTitle": "Subscribe in ntfy",
+      "subscribeDescription": "Install the ntfy app and subscribe to the topic below on the server {{server}}. The same topic can be used on several devices. Notifications contain the device id, the event and the time, and leave this backend towards the ntfy server.",
+      "topicWarning": "Anyone who knows the topic can read the notifications. Keep it private and replace it if it leaks.",
+      "topicLabel": "Your ntfy topic",
+      "copy": "Copy topic",
+      "copied": "Topic copied.",
+      "copyFailed": "Could not copy the topic.",
+      "sendTest": "Send test notification",
+      "testSent": "Test notification sent.",
+      "testRateLimited": "Please wait a few seconds before sending another test notification.",
+      "testFailed": "Could not send the test notification.",
+      "regenerate": "Regenerate topic",
+      "regenerateConfirm": "The current topic stops working and you have to subscribe to the new one in ntfy. Continue?",
+      "regenerated": "New topic generated. Subscribe to it in ntfy.",
+      "regenerateFailed": "Could not regenerate the topic."
+    }
+  },
+  "campaigns": {
+    "noRuns": "No runs",
+    "loadFailed": "Failed to load campaigns with status {{status}}"
+  },
+  "commandStatus": {
+    "state": {
+      "queued": "Waiting for delivery",
+      "delivered": "Sent, waiting for device",
+      "received": "Received",
+      "success": "Success",
+      "failed": "Failed",
+      "not_applicable": "Not applicable",
+      "promoted": "Promoted",
+      "removed": "Removed",
+      "expired": "Expired"
+    },
+    "step": {
+      "queued": "Queued",
+      "sent": "Sent",
+      "received": "Received",
+      "applied": "Applied",
+      "offline": "Offline",
+      "stillOnline": "Still online",
+      "result": "Result",
+      "offlineProgress": "Offline {{missed}}/{{required}}",
+      "offlineProgressTime": "Offline {{elapsed}} / {{required}}"
+    },
+    "progressOf": "Progress of {{name}}",
+    "kind": {
+      "config": "config",
+      "command": "command"
+    },
+    "awaitingOffline": "Waiting for device to go offline",
+    "shutdownInfo": {
+      "label": "How the result is determined",
+      "intro": {
+        "pending": "A device cannot confirm a shutdown because it is switched off, so the result is inferred from missing heartbeats.",
+        "pendingProgress": "A device cannot confirm a shutdown because it is switched off, so the result is inferred from missing heartbeats. So far {{missed}} of {{required}} heartbeat intervals have passed without one.",
+        "pendingProgressTime": "A device cannot confirm a shutdown because it is switched off, so the result is inferred from missing heartbeats. So far {{elapsed}} of {{required}} have passed without one.",
+        "success": "A device cannot confirm a shutdown because it is switched off. No heartbeat arrived afterwards, so the shutdown counted as successful.",
+        "failed": "A device cannot confirm a shutdown because it is switched off. It kept sending heartbeats after the acknowledgement, so the shutdown counted as failed."
+      },
+      "rule": "The shutdown counts as successful when no heartbeat arrived for {{required}} heartbeat intervals ({{interval}} each, {{total}} in total) after the device acknowledged the command. If the device still sends heartbeats {{failHeartbeats}} heartbeats after the acknowledgement, the shutdown counts as failed.",
+      "ruleTime": "The shutdown counts as successful when no heartbeat arrived for {{total}} after the device acknowledged the command. If the device still sends heartbeats {{failHeartbeats}} heartbeats after the acknowledgement, the shutdown counts as failed."
+    },
+    "loadFailed": "Failed to load command status",
+    "deleteShown": "Delete shown",
+    "deleteShownFailed": "Failed to delete the shown commands"
+  },
+  "gpsFix": {
+    "title": "Find GPS Fix",
+    "hint": "Start a live diagnostic run on a device, then reposition its antenna and watch the satellite count to find a good mounting position.",
+    "loadingDevices": "Loading devices...",
+    "noDevices": "No registered devices found.",
+    "runGroup": "GPS fix run",
+    "noRunActive": "No run active. Press Start to begin.",
+    "satellites": "Satellites",
+    "fix": "Fix",
+    "yes": "Yes",
+    "no": "No",
+    "elapsed": "Elapsed",
+    "devicesLoadFailed": "Failed to load devices",
+    "statusLoadFailed": "Failed to load gps-fix-test status",
+    "queueFailed": "Failed to queue {{command}}"
+  },
+  "campaignRuns": {
+    "updateFailed": "Failed to update the campaign runs",
+    "columns": {
+      "run": "Run",
+      "device": "Device",
+      "mission": "Mission",
+      "start": "Start",
+      "campaign": "Campaign"
+    },
+    "selectRun": "Select run {{runId}} of {{deviceId}}",
+    "noRuns": "No runs.",
+    "pagination": "Page {{page}} of {{totalPages}} ({{count}} runs)",
+    "previous": "Previous",
+    "next": "Next",
+    "runsOf": "Runs of {{name}}",
+    "membersTitle": "Runs in this campaign",
+    "removeSelected": "Remove selected",
+    "addTitle": "Add runs",
+    "includeOthers": "Include runs of other campaigns",
+    "candidatesCaption": "Runs available to add",
+    "addSelected": "Add selected"
+  },
+  "adminUsers": {
+    "title": "User Management",
+    "subtitle": "Create and manage dashboard accounts. Super-user only.",
+    "username": "Username",
+    "password": "Password",
+    "superuser": "Super-user",
+    "createUser": "Create User",
+    "creating": "Creating...",
+    "createFailed": "Failed to create user",
+    "updateFailed": "Failed to update user",
+    "deleteFailed": "Failed to delete user",
+    "loadFailed": "Failed to load users",
+    "confirmDelete": "Delete user \"{{email}}\"? This cannot be undone.",
+    "you": "(you)",
+    "yes": "Yes",
+    "no": "No",
+    "active": "Active",
+    "inactive": "Inactive",
+    "selfPermissions": "You can't change your own permissions here",
+    "selfDeactivate": "You can't deactivate yourself here",
+    "selfDelete": "You can't delete yourself here",
+    "revokeAdmin": "Revoke admin",
+    "makeAdmin": "Make admin",
+    "deactivate": "Deactivate",
+    "activate": "Activate",
+    "delete": "Delete",
+    "loading": "Loading users...",
+    "noUsers": "No users found.",
+    "columns": {
+      "id": "ID",
+      "status": "Status",
+      "actions": "Actions"
+    },
+    "pagination_one": "Page {{page}} of {{totalPages}} ({{count}} user)",
+    "pagination_other": "Page {{page}} of {{totalPages}} ({{count}} users)",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "adminCampaigns": {
+    "title": "Campaign Management",
+    "subtitle": "Group runs into the campaigns the public map aggregates within. A campaign's period is derived from its runs. Super-user only.",
+    "name": "Name",
+    "namePlaceholder": "summer-2026",
+    "period": "Period",
+    "actions": "Actions",
+    "createCampaign": "Create Campaign",
+    "creating": "Creating...",
+    "createFailed": "Failed to create campaign",
+    "updateFailed": "Failed to update campaign",
+    "deleteFailed": "Failed to delete campaign",
+    "loadFailed": "Failed to load campaigns",
+    "confirmDelete": "Delete campaign \"{{name}}\"? This cannot be undone.",
+    "save": "Save",
+    "saving": "Saving...",
+    "cancel": "Cancel",
+    "hideRuns": "Hide runs",
+    "manageRuns": "Manage runs",
+    "edit": "Edit",
+    "delete": "Delete",
+    "loading": "Loading campaigns...",
+    "noCampaigns": "No campaigns configured."
+  },
+  "runs": {
+    "title": "Measurement Runs",
+    "subtitle": "Every drive or flight a device has logged. Runs marked legacy were reconstructed per device, mission type and day from data stored before runs existed.",
+    "loadFailed": "Failed to load runs.",
+    "loadCampaignsFailed": "Failed to load campaigns.",
+    "filters": {
+      "deviceId": "Device ID",
+      "devicePlaceholder": "Filter by device...",
+      "missionType": "Mission Type",
+      "all": "All",
+      "campaign": "Campaign",
+      "allRuns": "All runs",
+      "unassigned": "Unassigned",
+      "from": "Started from",
+      "to": "Started until"
+    },
+    "columns": {
+      "run": "Run",
+      "device": "Device",
+      "mission": "Mission",
+      "end": "End",
+      "meanRsrp": "Mean RSRP",
+      "meanRsrq": "Mean RSRQ",
+      "meanSinr": "Mean SINR",
+      "campaign": "Campaign"
+    },
+    "sort": {
+      "start": "Start",
+      "duration": "Duration",
+      "point_count": "Points"
+    },
+    "duration": {
+      "hoursMinutes": "{{hours}}h {{minutes}}m",
+      "minutesSeconds": "{{minutes}}m {{seconds}}s",
+      "seconds": "{{seconds}}s"
+    },
+    "legacy": "legacy",
+    "showOnMap": "Show on map",
+    "noRuns": "No runs found.",
+    "pagination_one": "Page {{page}} of {{totalPages}} ({{count}} run)",
+    "pagination_other": "Page {{page}} of {{totalPages}} ({{count}} runs)",
+    "previous": "Previous",
+    "next": "Next",
+    "bulk": {
+      "selected": "{{count}} selected",
+      "edit": "Edit selected",
+      "clear": "Clear selection"
+    },
+    "selectAll": "Select all runs on this page",
+    "selectRun": "Select run {{run}} of {{deviceId}}",
+    "editRun": "Edit run {{run}}",
+    "deleteRun": "Delete run {{run}}",
+    "edit": "Edit",
+    "delete": "Delete",
+    "trash": "Trash"
+  },
+  "missionStatus": {
+    "title": "Mission Status",
+    "refresh": "Refresh",
+    "loading": "Loading heartbeat data...",
+    "loadFailed": "Failed to load heartbeat data",
+    "loadFailedWithReason": "Failed to load heartbeat data: {{reason}}",
+    "noDevices": "No devices registered yet.",
+    "selectDevice": "Select a device to see its status.",
+    "noHeartbeat": "{{deviceId}} has not sent a heartbeat yet.",
+    "runPhase": "Run phase",
+    "phase": {
+      "recovering_pending_data": "Recovering pending data",
+      "waiting_for_gps_fix": "Waiting for GPS fix",
+      "waiting_for_movement": "Waiting for movement",
+      "manual_mode_idle": "Idle in Manual Mode",
+      "recovery_idle": "Idle (recovery)",
+      "starting_up": "Starting up",
+      "stopping": "Stopping",
+      "active_measuring": "Measuring",
+      "finalizing": "Finalizing",
+      "done": "Done",
+      "shutting_down": "Shutting down",
+      "rebooting": "Rebooting",
+      "critical_error": "Critical error"
+    },
+    "shuttingDownBanner": "Device is shutting down - the connection will drop shortly.",
+    "rebootingBanner": "Device is rebooting - it will reconnect once it finishes booting.",
+    "criticalErrorBanner": "Critical error: the device is in maintenance mode and needs debugging over SSH.",
+    "recoveryBanner": "The device recovered from a crash and is idle until measuring is started again.",
+    "criticalErrorDetails": "Same error {{count}} times, {{reboots}} consecutive reboots, action: {{action}}",
+    "gps": {
+      "unknown": "Unknown",
+      "fixAcquired": "Fix acquired",
+      "noFix": "No fix",
+      "sats": "{{count}} sats"
+    },
+    "gauge": {
+      "empty": "No datapoints yet",
+      "summary": "{{valid}}% valid, {{invalid}}% invalid"
+    },
+    "tiles": {
+      "latestHeartbeat": "Latest Heartbeat",
+      "gpsFix": "GPS Fix",
+      "total": "Total",
+      "valid": "Valid",
+      "invalid": "Invalid",
+      "pendingFiles": "Pending Files",
+      "diskFree": "Disk Free",
+      "state": "State",
+      "mode": "Mode",
+      "noValue": "–"
+    },
+    "datapoints": "Datapoints",
+    "remoteCommands": "Remote Commands",
+    "queued": "Command queued, sent with the next heartbeat",
+    "queueFailed": "Failed to queue command",
+    "queueFailedWithReason": "Failed to queue command: {{reason}}",
+    "modeSwitchRebootFailed": "Mode switch was queued, but queuing the reboot failed. {{reason}}",
+    "confirm": "Confirm",
+    "confirmTitle": "{{action}} on {{deviceId}}?",
+    "rebootAfterwards": "Reboot afterwards",
+    "offlineHint": "The device is offline. The command stays queued for 24 hours and is sent with its next heartbeat.",
+    "commands": {
+      "start": {
+        "description": "Break out of the waiting loop and start measuring immediately."
+      },
+      "stop": {
+        "description": "Stop the current measurement run. The device finalizes and uploads the data, shuts down and boots into Manual Mode once."
+      },
+      "forceUpload": {
+        "description": "Upload all pending measurement files now."
+      },
+      "reboot": {
+        "description": "Reboot the device."
+      },
+      "shutdown": {
+        "description": "Shut the device down. It has to be powered on again manually."
+      },
+      "switchToAuto": {
+        "description": "Switch the boot mode to Auto Mode. It only takes effect on the next boot."
+      },
+      "switchToManual": {
+        "description": "Switch the boot mode to Manual Mode. It only takes effect on the next boot."
+      }
+    },
+    "commandStatus": {
+      "title": "Command status",
+      "empty": "No commands yet"
+    },
+    "mode": {
+      "manual": "Manual Mode",
+      "auto": "Auto Mode"
+    }
+  },
+  "remoteConfiguration": {
+    "title": "Remote Configuration",
+    "subtitle": "Queue config overrides and one-shot commands for a device.",
+    "devices": {
+      "loading": "Loading devices...",
+      "none": "No registered devices found.",
+      "select": "Select a device to configure it."
+    },
+    "groups": {
+      "measurement_cycle": "Measurement cycle",
+      "movement_detection": "Movement detection before start",
+      "latency_tests": "Latency tests",
+      "backend_operation": "Backend and operation",
+      "pipeline_monitoring": "Pipeline monitoring",
+      "risky": "Advanced - hardware"
+    },
+    "fields": {
+      "collector_capture_gate": {
+        "label": "Capture gate",
+        "description": "Determines when a data point is captured. `distance` measures after a travelled distance, `time` at a fixed interval regardless of movement. Detection of standstill and session end is not affected."
+      },
+      "collector_position_threshold": {
+        "label": "Position threshold",
+        "description": "Distance in meters the vehicle must have travelled since the last measurement to trigger a new one in `distance` mode. Small values give a denser spatial coverage, but more data and more modem queries. Values that are too small can fall within the GPS inaccuracy and then count noise as movement.",
+        "dependency": "Only affects capture gate `distance`."
+      },
+      "collector_capture_interval_s": {
+        "label": "Capture interval",
+        "description": "Interval in seconds between two measurements in `time` mode. In `distance` mode the value has no effect. It directly determines the temporal resolution of the measurement series.",
+        "dependency": "Only affects capture gate `time`."
+      },
+      "idle_threshold_s": {
+        "label": "Idle threshold",
+        "description": "Time in seconds without detected movement after which the session is ended. The data is then finalized and uploaded, and the device shuts down depending on its configuration. A value that is too small ends runs at traffic lights or in traffic jams, one that is too large keeps the device awake unnecessarily long. `0` disables the idle end: the run then ends only on a command, a shutdown or power loss, and the run log grows until then. The idle end only exists in Auto Mode; in other modes the value has no effect."
+      },
+      "collector_max_wait_for_first_fix": {
+        "label": "Max wait for first GPS fix",
+        "description": "Maximum wait in seconds for the first GPS fix before the run is aborted without measurement data. The value limits the start of a run. With poor reception, for example after a cold start in a garage, the first fix takes longer."
+      },
+      "collector_wait_log_interval": {
+        "label": "Wait log interval",
+        "description": "Interval in seconds between log messages while waiting for the first GPS fix. The value only affects the number of log entries, not the measurement behavior. It helps keep the log file small during long waits."
+      },
+      "collector_gps_enabled": {
+        "label": "GPS enabled",
+        "description": "Switches the GPS evaluation in the collector on or off. With `false`, the wait for a fix and the position matching are skipped, and measurements run without a position. This is meant for measurements without driving or for a defective receiver."
+      },
+      "collector_gps_disabled_poll_interval_s": {
+        "label": "Poll interval without GPS",
+        "description": "Interval in seconds between measurements while GPS is disabled. Without GPS there are no fixes to set the pace, so this value determines the measurement frequency. It only has an effect with `collector_gps_enabled = false`.",
+        "dependency": "Only affects `collector_gps_enabled = false`."
+      },
+      "movement_gate_poll_interval_s": {
+        "label": "Poll interval",
+        "description": "Interval in seconds at which the movement check before the run examines the GPS position. Long intervals save power, but delay the start after departure. The check only uses the GNSS receiver, not the modem."
+      },
+      "movement_gate_movement_threshold": {
+        "label": "Movement threshold",
+        "description": "Distance in meters between two checks from which the vehicle counts as moving. It must be larger than the typical GPS inaccuracy at standstill, otherwise the run starts by mistake. Values that are too large delay the start when driving slowly."
+      },
+      "movement_gate_confirmations_required": {
+        "label": "Confirmations required",
+        "description": "Number of consecutive checks that must confirm movement before the run starts. Higher values protect against false starts caused by GPS drift, but delay the beginning. Together with the poll interval this gives the minimum time until the start."
+      },
+      "movement_gate_home_latitude": {
+        "label": "Home latitude",
+        "description": "Latitude of the garage or home location. If latitude and longitude are set, a run only starts once the vehicle has left this position. Both fields must be set together or be `null` together."
+      },
+      "movement_gate_home_longitude": {
+        "label": "Home longitude",
+        "description": "Longitude of the garage or home location. It only works together with the latitude. `null` removes the home position check, then only movement counts."
+      },
+      "movement_gate_home_departure_threshold": {
+        "label": "Home departure distance",
+        "description": "Minimum distance in meters from the home position from which the vehicle counts as departed. It only works if latitude and longitude are set. A value that is too small is triggered by GPS drift in the garage alone."
+      },
+      "latency_test_enabled": {
+        "label": "Latency test enabled",
+        "description": "Switches the active latency measurements with flent on or off. Without a configured test server and a server-side counterpart, the test has no effect. The load test saturates the link and consumes data volume and battery."
+      },
+      "latency_test_baseline_interval_s": {
+        "label": "Baseline interval",
+        "description": "Interval in seconds between the ping tests on the unloaded link. These tests are cheap and provide the base latency. Shorter intervals increase the temporal resolution."
+      },
+      "latency_test_load_interval_s": {
+        "label": "Load interval",
+        "description": "Interval in seconds between the latency tests under load. Each test saturates the link for its entire duration, so the interval is considerably larger than for the baseline test. Short intervals consume data volume and battery."
+      },
+      "latency_test_poll_interval_s": {
+        "label": "Poll interval",
+        "description": "Interval in seconds at which it is checked whether one of the two tests is due. It determines the temporal accuracy with which tests start. It does not trigger tests and is only the step size of the check."
+      },
+      "heartbeat_interval_s": {
+        "label": "Heartbeat interval",
+        "description": "Interval in seconds between the status messages to the backend. The heartbeat is also the channel through which overrides and commands reach the device. Short intervals give a fast response, but cost data volume."
+      },
+      "device_mission_type": {
+        "label": "Mission type",
+        "description": "Mission type of the device, `ground` for ground vehicles and `drone` for drones. It is written into every data point. The backend can use it to separate measurements by type of deployment; the measurement behavior does not change."
+      },
+      "display_enabled": {
+        "label": "Display enabled",
+        "description": "Switches the OLED status display on or off. With `false`, the device runs with a display that does nothing. This is useful if no display is connected."
+      },
+      "display_refresh_interval_s": {
+        "label": "Display refresh interval",
+        "description": "Interval in seconds at which the display is redrawn. Shorter intervals show the state more currently, but load the I2C bus. The value only has an effect when the display is enabled."
+      },
+      "day_end_threshold_s": {
+        "label": "Day-end threshold",
+        "description": "Time limit for the end of the day. The value is stored on the device, but does not have a function yet because the day-end cutoff is not implemented yet. It can already be set in advance."
+      },
+      "run_status_empty_captures_until_pipeline_broken": {
+        "label": "Empty captures until pipeline broken",
+        "description": "Number of consecutive empty measurements while moving after which the backend reports the measurement chain as broken. Small values report faults quickly, but also during short dead zones. The value only applies while the vehicle is moving."
+      },
+      "modem_mode": {
+        "label": "Modem mode",
+        "description": "Query mode of the modem. `serving_cell` reads the data of the current cell, `sa_scan` scans 5G SA cells only. For `sa_scan` the modem must have been configured manually via the AT console beforehand, otherwise it returns no data."
+      },
+      "modem_sim_unlock_poll_attempts": {
+        "label": "SIM unlock attempts",
+        "description": "Number of attempts to wait for an unlocked SIM after the PIN was entered. With too few attempts the start fails with a slow SIM. Too many delay it with a defective SIM."
+      },
+      "modem_sim_unlock_poll_interval": {
+        "label": "SIM unlock interval",
+        "description": "Interval in seconds between these attempts. Together with the number of attempts this gives the maximum wait for the SIM."
+      },
+      "gnss_receiver_retries": {
+        "label": "GNSS receiver retries",
+        "description": "Number of retries for failed read accesses to the GNSS receiver. A value that is too small makes the collector vulnerable to short dropouts of the serial connection. One that is too large delays the error message with a defective receiver."
+      },
+      "gnss_receiver_retry_delay_s": {
+        "label": "GNSS retry delay",
+        "description": "Pause in seconds between these retries. Together with the number of retries it determines how long a read error is tolerated at most."
+      },
+      "system_running_on_pi": {
+        "label": "Running on Raspberry Pi",
+        "description": "Determines whether Raspberry Pi hardware (GPIO) is addressed. When set to `false`, the completion signal to the device stays off, and an automatic shutdown via this route no longer works. On a real Pi it should always be `true`."
+      }
+    },
+    "overrides": {
+      "title": "Config Overrides",
+      "pending_one": "{{count}} change pending",
+      "pending_other": "{{count}} changes pending",
+      "hint": "Fields left unchanged keep their current setting. Overrides take effect at the device's next boot.",
+      "setting": "Setting",
+      "current": "Current",
+      "newValue": "New value",
+      "fieldAria": "{{group}} {{label}}",
+      "resetField": "Reset {{label}}",
+      "reset": "Reset",
+      "unchanged": "unchanged",
+      "notSetOption": "Not set (reset value)",
+      "willReset": "Will be reset to \"not set\"",
+      "range": "Range: {{min}} to {{max}}",
+      "infoAria": "About {{label}}",
+      "noEffectYet": "Currently has no effect on the device.",
+      "unsupported": "This setting type is not supported by this version of the page.",
+      "schemaLoading": "Loading settings...",
+      "invalid": "Fix the highlighted settings before sending.",
+      "favorite": {
+        "title": "Favorites",
+        "toggleAria": "Favorite: {{label}}",
+        "add": "Add to favorites",
+        "remove": "Remove from favorites"
+      }
+    },
+    "oneShot": {
+      "title": "One-Shot Commands"
+    },
+    "status": {
+      "title": "Command Status",
+      "removeQueued": "Remove queued",
+      "loading": "Loading commands...",
+      "empty": "Nothing queued for this device yet."
+    },
+    "comms": {
+      "title": "Command Communication ({{count}})",
+      "hint": "Commands and overrides sent to devices, and the acknowledgements that came back.",
+      "allDevices": "All devices",
+      "empty": "No communication yet.",
+      "toDevice": "to device",
+      "fromDevice": "from device",
+      "columns": {
+        "time": "Time",
+        "device": "Device",
+        "direction": "Direction",
+        "type": "Type",
+        "name": "Name",
+        "id": "ID",
+        "status": "Status",
+        "detail": "Detail"
+      }
+    },
+    "clearQueue": {
+      "title": "Remove queued items for {{deviceId}}?",
+      "removing": "Removing...",
+      "body_one": "This removes all {{count}} queued item for this device - config overrides and pending one-shot commands alike. This cannot be undone.",
+      "body_other": "This removes all {{count}} queued items for this device - config overrides and pending one-shot commands alike. This cannot be undone."
+    },
+    "preview": {
+      "title": "Preview & Confirmation",
+      "empty": "No changes queued yet.",
+      "config": "Config: {{field}} = {{value}}",
+      "command": "Command: {{command}}",
+      "remove": "Remove",
+      "send": "Send & Confirm",
+      "selectDevice": "Select a device first."
+    },
+    "confirm": {
+      "title": "Confirm changes for {{deviceId}}",
+      "confirm": "Confirm"
+    },
+    "toast": {
+      "queueRemoved": "Queued items removed for {{deviceId}}.",
+      "changesSent": "Changes sent to {{deviceId}}."
+    },
+    "errors": {
+      "logLoad": "Failed to load command log",
+      "devicesLoad": "Failed to load devices",
+      "removeQueued": "Failed to remove queued items",
+      "sendChanges": "Failed to send changes",
+      "favoriteSave": "Favorites could not be saved",
+      "schemaLoad": "Failed to load the settings"
+    },
+    "validation": {
+      "notNumber": "Enter a number.",
+      "notInteger": "Enter a whole number.",
+      "belowMin": "Must be at least {{min}}.",
+      "aboveMax": "Must be at most {{max}}.",
+      "notAllowed": "Not an allowed value."
+    },
+    "warnings": {
+      "homeIncomplete": "Home latitude and longitude should be set together or cleared together; the device may reject one without the other."
+    },
+    "riskyConfirm": {
+      "title": "Do you know what you are doing?",
+      "body": "Wrong values for these settings can make the device unusable, so that it can only be repaired on site.",
+      "confirm": "Yes, continue"
+    },
+    "values": {
+      "notSet": "not set",
+      "true": "true",
+      "false": "false"
+    }
+  },
+  "testing": {
+    "title": "Testing Visualization",
+    "subtitle": "Visualize and monitor manual integration test results",
+    "refresh": "Refresh",
+    "never": "Never",
+    "notAvailable": "N/A",
+    "duration": {
+      "milliseconds": "{{ms}}ms",
+      "seconds": "{{seconds}}s",
+      "minutesSeconds": "{{minutes}}m {{seconds}}s"
+    },
+    "testType": {
+      "modem": "modem",
+      "gps": "gps",
+      "collector": "collector",
+      "uploader": "uploader",
+      "heartbeat": "heartbeat"
+    },
+    "status": {
+      "passed": "passed",
+      "failed": "failed",
+      "running": "running",
+      "skipped": "skipped"
+    },
+    "mode": {
+      "testing": "Testing",
+      "production": "Production"
+    },
+    "filters": {
+      "testType": "Test Type",
+      "allTypes": "All Types",
+      "status": "Status",
+      "allStatuses": "All Statuses",
+      "deviceId": "Device ID",
+      "devicePlaceholder": "Filter by device...",
+      "startDate": "Start Date",
+      "endDate": "End Date"
+    },
+    "selectResult": "Select test result {{id}}",
+    "selectAll": "Select all test results on this page",
+    "loadingResults": "Loading test results...",
+    "noResults": "No test results found. Test data will appear here once submitted.",
+    "loadingSummary": "Loading summary...",
+    "columns": {
+      "id": "ID",
+      "testType": "Test Type",
+      "status": "Status",
+      "device": "Device",
+      "executedAt": "Executed At",
+      "duration": "Duration",
+      "type": "Type",
+      "errorMessage": "Error Message"
+    },
+    "summary": {
+      "title": "Test Summary",
+      "totalTests": "Total Tests",
+      "passed": "Passed",
+      "failed": "Failed",
+      "running": "Running",
+      "skipped": "Skipped",
+      "passRate": "Pass Rate",
+      "byTestType": "By Test Type",
+      "stats": {
+        "total": "Total: {{count}}",
+        "passed": "Passed: {{count}}",
+        "failed": "Failed: {{count}}",
+        "running": "Running: {{count}}",
+        "skipped": "Skipped: {{count}}"
+      },
+      "recentFailures": "Recent Failures",
+      "count": "Count",
+      "noFailures": "No failures in the current window.",
+      "recentExecutions": "Recent Executions",
+      "exec": {
+        "device": "Device: {{value}}",
+        "executed": "Executed: {{value}}",
+        "duration": "Duration: {{value}}",
+        "error": "Error: {{value}}"
+      },
+      "noExecutions": "No recent executions found."
+    },
+    "results": "Test Results",
+    "deleteSelected": "Delete selected ({{count}})",
+    "deleteAll": "Delete All",
+    "confirmDeleteSelected_one": "Delete {{count}} selected test result? This cannot be undone.",
+    "confirmDeleteSelected_other": "Delete {{count}} selected test results? This cannot be undone.",
+    "confirmDeleteAll_one": "Really delete all {{count}} test result? This cannot be undone.",
+    "confirmDeleteAll_other": "Really delete all {{count}} test results? This cannot be undone.",
+    "pagination_one": "Page {{page}} of {{totalPages}} ({{count}} result)",
+    "pagination_other": "Page {{page}} of {{totalPages}} ({{count}} results)",
+    "previous": "Previous",
+    "next": "Next",
+    "errors": {
+      "load": "Failed to load test results",
+      "loadWithReason": "Failed to load test results: {{reason}}",
+      "deleteSelected": "Failed to delete selected results",
+      "deleteSelectedWithReason": "Failed to delete selected results: {{reason}}",
+      "deleteAll": "Failed to delete all results",
+      "deleteAllWithReason": "Failed to delete all results: {{reason}}"
+    }
+  },
+  "map": {
+    "title": "Map / Heatmap",
+    "subtitle": "Network quality (RSRP/RSRQ/SINR) and latency/throughput by location.",
+    "refresh": "Refresh",
+    "loadFailed": "Failed to load measurement data.",
+    "loadCampaignsFailed": "Failed to load campaigns.",
+    "exportFailed": "Failed to export as {{format}}.",
+    "exportOnlyMeasurement": "Export is only available for RSRP/RSRQ/SINR",
+    "exportOnlyHeatmap": "Export is only available in the heatmap view",
+    "export": "Export {{format}}",
+    "exporting": "Exporting...",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit Fullscreen",
+    "filters": {
+      "metric": "Metric",
+      "missionType": "Mission Type",
+      "deviceId": "Device ID",
+      "devicePlaceholder": "Filter by device...",
+      "campaign": "Campaign",
+      "noCampaigns": "No campaigns configured",
+      "allTime": "All time",
+      "displayStyle": "Display style",
+      "heatmap": "Heatmap",
+      "points": "Points",
+      "opacity": "Opacity"
+    },
+    "runFilter": {
+      "runOnly": "Showing only run {{runId}}.",
+      "withDevice": "Showing only run {{runId}} of {{deviceId}}.",
+      "clear": "Clear run filter"
+    },
+    "hint": {
+      "points": "Drag with Shift held to select all points in a rectangle (Shift-click toggles a single point). Drag with Ctrl held to zoom to a rectangle.",
+      "heatmap": "Drag with Ctrl held to zoom to a rectangle."
+    },
+    "selection": {
+      "title": "Selected points ({{count}})",
+      "clear": "Clear",
+      "statistics": "Selection statistics",
+      "stats": {
+        "count": "Count",
+        "min": "Min",
+        "max": "Max",
+        "mean": "Mean",
+        "median": "Median",
+        "stdDev": "Std dev"
+      },
+      "columns": {
+        "device": "Device",
+        "test": "Test",
+        "started": "Started",
+        "time": "Time"
+      },
+      "remove": "Remove from selection",
+      "export": "Export selection {{format}}",
+      "exportFailed": "Failed to export the selection as {{format}}."
+    }
+  },
+  "runDialogs": {
+    "edit": {
+      "title": "Edit run",
+      "save": "Save",
+      "saving": "Saving...",
+      "failed": "Failed to save the run.",
+      "deviceId": "Device ID",
+      "runId": "Run ID (set by the device)",
+      "name": "Name",
+      "missionType": "Mission type",
+      "campaign": "Campaign",
+      "noCampaign": "No campaign"
+    },
+    "bulk": {
+      "title_one": "Edit {{count}} run",
+      "title_other": "Edit {{count}} runs",
+      "apply": "Apply to selected",
+      "applying": "Applying...",
+      "failed": "Failed to update the runs.",
+      "hint": "Only the fields you fill in are changed on all selected runs.",
+      "namePlaceholder": "Leave empty to keep the names",
+      "keepCurrent": "Keep current"
+    },
+    "delete": {
+      "title": "Move run to trash",
+      "confirm": "Move to trash",
+      "deleting": "Moving to trash...",
+      "failed": "Failed to move the run to the trash.",
+      "body_one": "Move <run/> of device {{deviceId}} to the trash? The run with its {{count}} measurement and all its latency results is hidden everywhere until a superuser restores it from the trash.",
+      "body_other": "Move <run/> of device {{deviceId}} to the trash? The run with its {{count}} measurements and all its latency results is hidden everywhere until a superuser restores it from the trash."
+    },
+    "deletePermanently": {
+      "title": "Delete run permanently",
+      "confirm": "Delete permanently",
+      "deleting": "Deleting...",
+      "failed": "Failed to delete the run.",
+      "body_one": "Permanently delete <run/> of device {{deviceId}}? This removes the run with its {{count}} measurement and its {{latencyResults}} latency results. It cannot be undone.",
+      "body_other": "Permanently delete <run/> of device {{deviceId}}? This removes the run with its {{count}} measurements and its {{latencyResults}} latency results. It cannot be undone."
+    }
+  },
+  "commands": {
+    "force-upload-now": "Force upload",
+    "shutdown-now": "Shut down",
+    "reboot-now": "Reboot",
+    "sim-reset-now": "Reset SIM",
+    "mode-manual-now": "Manual mode",
+    "mode-waiting-now": "Manual mode",
+    "mode-auto-now": "Auto mode",
+    "start-measuring-now": "Start measuring",
+    "stop-measuring-now": "Stop measuring",
+    "run-selftest-now": "Run self-test",
+    "run-gps-fix-test-now": "Start GPS fix test",
+    "stop-gps-fix-test-now": "Stop GPS fix test",
+    "promote-overrides-now": "Promote overrides"
+  },
+  "runTrash": {
+    "title": "Trash",
+    "subtitle": "Deleted runs stay here with all their data until they are restored or deleted permanently. Data a device uploads into a trashed run is kept and stays in the trash.",
+    "backToRuns": "Back to runs",
+    "loadFailed": "Failed to load the trash.",
+    "restoreFailed": "Failed to restore the run.",
+    "empty": "The trash is empty.",
+    "columns": {
+      "run": "Run",
+      "device": "Device",
+      "mission": "Mission",
+      "start": "Start",
+      "points": "Points",
+      "latencyResults": "Latency results",
+      "campaign": "Campaign",
+      "deletedAt": "Deleted",
+      "deletedBy": "Deleted by"
+    },
+    "restore": "Restore",
+    "restoreRun": "Restore run {{run}}",
+    "deletePermanently": "Delete permanently",
+    "deleteRunPermanently": "Delete run {{run}} permanently",
+    "pagination_one": "Page {{page}} of {{totalPages}} ({{count}} run)",
+    "pagination_other": "Page {{page}} of {{totalPages}} ({{count}} runs)",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

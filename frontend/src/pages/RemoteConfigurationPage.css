@@ -1,0 +1,252 @@
+.remote-config__section {
+  margin-bottom: var(--space-5);
+}
+
+.remote-config__section-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-2) 0;
+}
+
+.remote-config__section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.remote-config__section-header .remote-config__section-title {
+  margin-bottom: 0;
+}
+
+.remote-config__section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.remote-config__commands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.remote-config__hint {
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-bottom: var(--space-3);
+}
+
+.remote-config__error {
+  color: var(--danger);
+  font-size: 0.875rem;
+  margin-top: var(--space-2);
+}
+
+.remote-config__preview-list {
+  margin: 0 0 var(--space-4) 0;
+  padding-left: 20px;
+  font-size: 0.875rem;
+}
+
+.remote-config__remove-btn {
+  margin-left: var(--space-2);
+  font-size: 0.75rem;
+  color: var(--danger);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+}
+
+
+.remote-config__comms-summary {
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.remote-config__comms-body {
+  margin-top: var(--space-3);
+}
+
+.remote-config__comms-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  font-size: 0.875rem;
+}
+
+.remote-config__change-count {
+  font-size: 0.875rem;
+  color: var(--accent);
+}
+
+.remote-config__group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: var(--space-2);
+}
+
+.remote-config__group-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.remote-config__group-badge {
+  background: var(--accent);
+  color: var(--bg);
+  border-radius: 999px;
+  padding: 0 var(--space-2);
+  font-size: 0.75rem;
+}
+
+.remote-config__config-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.remote-config__config-table th {
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.remote-config__config-table td {
+  padding: var(--space-2) var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.remote-config__current {
+  color: var(--muted);
+}
+
+.remote-config__row--changed td:first-child {
+  border-left: 3px solid var(--accent);
+}
+
+.remote-config__value-cell {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.remote-config__value-input {
+  width: 8rem;
+  max-width: 100%;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.remote-config__value-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.remote-config__unit {
+  color: var(--muted);
+}
+
+.remote-config__reset-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.remote-config__favorite-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+}
+
+.remote-config__section-summary {
+  /* list-item keeps the native disclosure triangle; flex would remove it. */
+  display: list-item;
+  margin-bottom: var(--space-2);
+  cursor: pointer;
+}
+
+.remote-config__section-summary .remote-config__section-title {
+  display: inline;
+  margin-bottom: 0;
+}
+
+.remote-config__section-summary .remote-config__change-count {
+  margin-left: var(--space-3);
+}
+
+.remote-config__card {
+  margin-bottom: var(--space-4);
+}
+
+.remote-config__card > .remote-config__section:last-child {
+  margin-bottom: 0;
+}
+
+.remote-config__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.remote-config__field-note {
+  margin: var(--space-1) 0 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.remote-config__value-cell {
+  flex-wrap: wrap;
+}
+
+.remote-config__not-set {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.remote-config__unsupported {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.remote-config__warning {
+  margin-bottom: var(--space-2);
+}
+
+.remote-config__row--invalid .remote-config__value-input {
+  border-color: var(--danger);
+}
+
+/* An explicit "not set" is a change of its own, not an untouched field. */
+.remote-config__row--not-set .remote-config__value-input {
+  border-style: dashed;
+}
+
+.remote-config__row--not-set td:first-child {
+  border-left-style: dashed;
+}

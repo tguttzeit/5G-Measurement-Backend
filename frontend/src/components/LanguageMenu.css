@@ -1,0 +1,36 @@
+.language-menu__trigger {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.language-menu__trigger:hover {
+  color: var(--text-h);
+}
+
+.language-menu__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.language-menu__panel button {
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--text);
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.language-menu__panel button:hover,
+.language-menu__panel button.active {
+  color: var(--text-h);
+  background: var(--border);
+}

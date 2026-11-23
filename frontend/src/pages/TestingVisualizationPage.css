@@ -1,0 +1,75 @@
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-4) 0;
+}
+
+.subsection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 var(--space-3) 0;
+}
+
+.summary-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.summary-card__title {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.summary-card__value {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.test-type-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: var(--surface-2);
+  color: var(--text-h);
+}
+
+.test-type-summary__title {
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+  color: var(--text-h);
+}
+
+.test-type-summary__stats {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.recent-executions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-3);
+}
+
+.recent-execution-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.recent-execution-card__line {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.test-result-row__error {
+  color: var(--muted);
+  max-width: 320px;
+  white-space: normal;
+  word-break: break-word;
+}

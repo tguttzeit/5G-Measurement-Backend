@@ -1,0 +1,67 @@
+# Caddy v2 reverse proxy configuration for 5G Measurement Backend
+# Domain: set SITE_DOMAIN in .env (docker-compose.yml passes it to the caddy container)
+#
+# This configuration:
+# - Terminates TLS automatically via Let's Encrypt
+# - Reverse proxies to frontend-prod container
+# - Reverse proxies /api/* requests to the FastAPI backend container
+
+{$SITE_DOMAIN} {
+    # The backend serves no documentation of its own; the API reference is part of the
+    # documentation site. These are the paths FastAPI would have used behind /api.
+    redir /api/docs /docs/en/backend/dev/api/ permanent
+    redir /api/redoc /docs/en/backend/dev/api/ permanent
+    redir /api/openapi.json /docs/en/backend/dev/api/openapi.json permanent
+
+    # Reverse proxy for API requests to FastAPI
+    handle_path /api/* {
+        # Bounds how much a single request can make the backend buffer/parse before
+        # device auth (or any other check) gets a chance to reject it.
+        request_body {
+            max_size 10MB
+        }
+        # Flush every write straight through: GET /api/heartbeat/stream is a long-lived
+        # Server-Sent Events response that must not be held back by buffering.
+        reverse_proxy backend:8000 {
+            flush_interval -1
+        }
+    }
+
+    # Static documentation site, published by the documentation deployment timer.
+    # The base directory is mounted, not the symlink: Docker resolves a mounted
+    # symlink once at container start.
+    redir /docs /docs/
+    handle_path /docs/* {
+        root * /srv/docs/current
+        file_server
+    }
+
+    # Reverse proxy all other requests to frontend-prod (nginx)
+    reverse_proxy frontend-prod:80
+
+    # Enable gzip compression
+    encode gzip
+
+    # Security headers
+    header {
+        X-Content-Type-Options nosniff
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+    }
+
+    # Logging configuration
+    log {
+        output file /var/log/caddy/access.log
+    }
+}
+
+# Local development configuration (optional)
+# Uncomment to test locally before deploying to the server
+# localhost:80 {
+#     root * ./frontend/dist
+#     try_files {path} /index.html
+#     file_server
+#     handle_path /api/* {
+#         reverse_proxy localhost:8000
+#     }
+# }

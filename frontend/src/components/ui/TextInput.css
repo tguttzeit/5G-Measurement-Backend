@@ -1,0 +1,33 @@
+.ui-field {
+  display: block;
+  min-width: 0;
+}
+
+.ui-field__label {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: var(--space-1);
+}
+
+.ui-field__input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 0.875rem;
+  color: var(--text-h);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.ui-field__input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.ui-field__input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

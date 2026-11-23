@@ -1,0 +1,31 @@
+.ui-table-scroll {
+  overflow-x: auto;
+}
+
+.ui-table {
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ui-table thead tr {
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+}
+
+.ui-table th {
+  padding: var(--space-3);
+  text-align: left;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.ui-table tbody tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.ui-table td {
+  padding: var(--space-3);
+}

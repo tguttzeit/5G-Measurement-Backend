@@ -1,0 +1,28 @@
+[Unit]
+Description=5G Measurement Backend - database backup
+After=docker.service
+Wants=docker.service
+
+[Service]
+Type=oneshot
+# Own account in the docker group, owning the backup directory. Not shared with the flent
+# server's appuser: docker group membership amounts to root, and irtt is network-facing. On a
+# host with a different account or checkout path, override User=, Group= and ExecStart= in a
+# drop-in.
+User=dbbackup
+Group=dbbackup
+Environment=BACKUP_DIR=/var/backups/5g-measurement-backend
+ExecStart=/opt/5g-measurement-backend/deploy/backup-db.sh
+TimeoutStartSec=30min
+
+# Talks to the Docker socket and writes only into the backup directory, which has to exist
+# before the first run.
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/var/backups/5g-measurement-backend
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes

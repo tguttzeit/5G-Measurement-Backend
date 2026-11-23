@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.env.test
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# LAN dev stack: Caddy root certificate exported for the device (scripts/lan-dev.sh ca)
+deploy/lan-dev/

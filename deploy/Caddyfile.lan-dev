@@ -1,0 +1,31 @@
+# Caddy config for the LAN dev stack (docker-compose.lan-dev.yml).
+#
+# Mirrors deploy/Caddyfile - /api/* is stripped and proxied to FastAPI, everything else goes to the
+# frontend - but serves https://$DEV_HOST:8443 with a certificate from Caddy's own local CA
+# (`tls internal`; the root certificate is exported by scripts/lan-dev.sh). The certificate covers
+# $DEV_HOST (IP addresses work) and localhost.
+{
+	admin off
+	# A client connecting by IP address (the device does) sends no SNI, and behind Docker's NAT
+	# Caddy can't match the connection's local address to a certificate - without this it answers
+	# those handshakes with a TLS "internal error".
+	default_sni {$DEV_HOST}
+}
+
+https://{$DEV_HOST}:8443, https://localhost:8443 {
+	tls internal
+
+	handle_path /api/* {
+		request_body {
+			max_size 10MB
+		}
+		# Flush every write straight through: the heartbeat/upload/command streams are long-lived
+		# Server-Sent Events responses that must not be held back by buffering.
+		reverse_proxy backend:8000 {
+			flush_interval -1
+		}
+	}
+
+	reverse_proxy frontend:80
+	encode gzip
+}

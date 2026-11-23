@@ -1,0 +1,62 @@
+.user-menu__trigger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  padding: 6px 8px;
+}
+
+.user-menu__trigger:hover {
+  color: var(--text-h);
+}
+
+.user-menu__hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.user-menu__hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+}
+
+.user-menu__panel {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.user-menu__panel a {
+  color: var(--text);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.user-menu__panel a:hover,
+.user-menu__panel a.active {
+  color: var(--text-h);
+  background: var(--border);
+}
+
+.user-menu__logout {
+  text-align: left;
+  background: none;
+  border: none;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.user-menu__logout:hover {
+  background: var(--border);
+}

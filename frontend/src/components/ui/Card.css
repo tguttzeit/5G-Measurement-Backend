@@ -1,0 +1,42 @@
+.ui-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  padding: var(--space-4);
+}
+
+.ui-tile {
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.ui-tile--neutral {
+  background: var(--surface);
+  color: var(--text-h);
+}
+
+.ui-tile--accent {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.ui-banner {
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: 0.875rem;
+}
+
+.ui-banner--danger {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+.ui-banner--success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.ui-banner--warning {
+  background: var(--surface-2);
+  color: var(--text-h);
+}

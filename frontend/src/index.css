@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* THA-derived accent */
+  --accent: #e9014b;
+  --accent-hover: #d00040;
+  --accent-contrast: #fff;
+
+  /* Status */
+  --success: #4caf50;
+  --success-bg: #e7f6e8;
+  --success-text: #1e5e21;
+  --danger: #f44336;
+  --danger-bg: #fdecea;
+  --danger-text: #a12318;
+
+  /* Text / surfaces */
+  --text: #6b6375;
+  --text-h: #08060d;
+  --muted: #969696;
+  --bg: #fff;
+  --surface: #f4f4f5;
+  --surface-2: #ececec;
+  --border: #e5e4e7;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Radius scale */
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 12px;
+
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/145% var(--sans);
+  color-scheme: light dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --success-bg: #102511;
+    --success-text: #7cd47f;
+    --danger-bg: #2b1210;
+    --danger-text: #f2938a;
+
+    --text: #9ca3af;
+    --text-h: #f3f4f6;
+    --muted: #7a7f8a;
+    --bg: #16171d;
+    --surface: #1c1e26;
+    --surface-2: #262832;
+    --border: #2e303a;
+  }
+}
+
+:root.dark {
+  --success-bg: #102511;
+  --success-text: #7cd47f;
+  --danger-bg: #2b1210;
+  --danger-text: #f2938a;
+
+  --text: #9ca3af;
+  --text-h: #f3f4f6;
+  --muted: #7a7f8a;
+  --bg: #16171d;
+  --surface: #1c1e26;
+  --surface-2: #262832;
+  --border: #2e303a;
+}
+
+:root.light {
+  --success-bg: #e7f6e8;
+  --success-text: #1e5e21;
+  --danger-bg: #fdecea;
+  --danger-text: #a12318;
+
+  --text: #6b6375;
+  --text-h: #08060d;
+  --muted: #969696;
+  --bg: #fff;
+  --surface: #f4f4f5;
+  --surface-2: #ececec;
+  --border: #e5e4e7;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--sans);
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

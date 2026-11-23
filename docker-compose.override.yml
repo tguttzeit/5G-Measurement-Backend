@@ -1,0 +1,35 @@
+version: '3.8'
+
+# Development override file
+# This file is automatically loaded by docker compose and provides defaults
+# that can be overridden by the --profile flag
+
+services:
+  # Override backend for development with volume mounts
+  backend:
+    volumes:
+      - ./app:/app/app:ro,delegated
+      - ./migrations:/app/migrations:ro,delegated
+      - ./alembic.ini:/app/alembic.ini:ro,delegated
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONDONTWRITEBYTECODE=1
+
+  # Override frontend for development
+  frontend:
+    volumes:
+      - ./frontend:/app:ro,delegated
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "5173:5173"
+
+  # PostgreSQL with additional tools for development
+  postgres:
+    ports:
+      - "127.0.0.1:5432:5432"
+
+# Note: In production, use --profile prod to enable caddy and frontend-prod
+# In development, use --profile dev to enable the dev frontend

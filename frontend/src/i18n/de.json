@@ -1,0 +1,975 @@
+{
+  "common": {
+    "loading": "Wird geladen...",
+    "cancel": "Abbrechen",
+    "sending": "Wird gesendet...",
+    "dismissNotification": "Benachrichtigung schließen",
+    "notifications": "Benachrichtigungen",
+    "online": "online",
+    "offline": "offline",
+    "devices": "Geräte",
+    "theme": {
+      "label": "Darstellung",
+      "system": "System",
+      "light": "Hell",
+      "dark": "Dunkel"
+    },
+    "missionType": {
+      "ground": "Boden",
+      "drone": "Drohne"
+    },
+    "metric": {
+      "rsrp": "RSRP",
+      "rsrq": "RSRQ",
+      "sinr": "SINR",
+      "baseline_rtt_ms": "RTT-Basiswert (ms)",
+      "rtt_under_load_ms": "RTT unter Last (ms)",
+      "rtt_p99_ms": "RTT p99 (ms)",
+      "download_mbits_s": "Download (Mbit/s)",
+      "upload_mbits_s": "Upload (Mbit/s)"
+    },
+    "requestFailed": "Anfrage an {{path}} fehlgeschlagen mit Status {{status}}"
+  },
+  "time": {
+    "ago": "vor {{duration}}",
+    "unit": {
+      "year": "J.",
+      "month": "Mon.",
+      "day": "T.",
+      "hour": "Std.",
+      "minute": "Min.",
+      "second": "Sek."
+    }
+  },
+  "shell": {
+    "appTitle": "5G-Netzqualität",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "docs": "Dokumentation",
+    "openUserMenu": "Benutzermenü öffnen",
+    "menu": {
+      "status": "Missionsstatus",
+      "remoteConfiguration": "Fernkonfiguration",
+      "runs": "Messläufe",
+      "campaigns": "Kampagnenverwaltung",
+      "testing": "Testvisualisierung",
+      "users": "Benutzerverwaltung",
+      "changePassword": "Passwort ändern",
+      "settings": "Einstellungen"
+    }
+  },
+  "auth": {
+    "loginTitle": "Anmeldung",
+    "sessionExpired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "loginButton": "Anmelden",
+    "loggingIn": "Anmeldung läuft...",
+    "loginFailed": "Anmeldung fehlgeschlagen",
+    "fetchUserFailed": "Benutzerinformationen konnten nicht geladen werden",
+    "changePassword": {
+      "title": "Passwort ändern",
+      "intro": "Geben Sie Ihr aktuelles Passwort ein und wählen Sie ein neues.",
+      "currentPassword": "Aktuelles Passwort",
+      "newPassword": "Neues Passwort",
+      "confirmPassword": "Neues Passwort bestätigen",
+      "mismatch": "Neues Passwort und Bestätigung stimmen nicht überein.",
+      "incorrectCurrent": "Das aktuelle Passwort ist falsch.",
+      "failed": "Das Passwort konnte nicht geändert werden.",
+      "locked": "Konto nach zu vielen fehlgeschlagenen Versuchen gesperrt. Wenden Sie sich an eine Administratorin oder einen Administrator, um das Passwort zurückzusetzen.",
+      "attemptsRemaining_one": "Noch {{count}} Versuch übrig.",
+      "attemptsRemaining_other": "Noch {{count}} Versuche übrig.",
+      "success": "Passwort erfolgreich geändert.",
+      "submit": "Passwort ändern",
+      "submitting": "Wird geändert..."
+    }
+  },
+  "notifications": {
+    "upload": {
+      "success_one": "Upload erfolgreich: {{deviceId}} hat {{count}} Messpunkt gesendet, von <origin/>.",
+      "success_other": "Upload erfolgreich: {{deviceId}} hat {{count}} Messpunkte gesendet, von <origin/>.",
+      "originRun": "Lauf",
+      "originRuns": "Läufen",
+      "originUnlabeled": "einem unbezeichneten Lauf",
+      "viewInRuns": "In Messläufen ansehen"
+    },
+    "ack": {
+      "shuttingDown": "{{deviceId}} fährt herunter.",
+      "rebooting": "{{deviceId}} startet neu.",
+      "receivedCommand": "{{deviceId}} hat {{command}} empfangen.",
+      "failed": "Befehl fehlgeschlagen: {{command}} auf {{deviceId}} - {{error}}",
+      "notApplicable": "Befehl nicht anwendbar: {{command}} auf {{deviceId}}.",
+      "notApplicableWithReason": "Befehl nicht anwendbar: {{command}} auf {{deviceId}} - {{reason}}.",
+      "succeeded": "Befehl erfolgreich: {{command}} auf {{deviceId}}."
+    },
+    "selftest": {
+      "viewResults": "Selbsttest-Ergebnisse ansehen"
+    }
+  },
+  "settings": {
+    "title": "Einstellungen",
+    "language": {
+      "title": "Sprache",
+      "description": "Wählen Sie die Sprache der Benutzeroberfläche. Die Auswahl wird nur in diesem Browser gespeichert.",
+      "label": "Oberflächensprache",
+      "en": "English",
+      "de": "Deutsch"
+    },
+    "rawRowCap": {
+      "title": "Limit für Rohdatenpunkte",
+      "description": "Maximale Anzahl an Rohdatenpunkten, die die Karten- und Latenzabfragen angemeldeter Benutzer zurückgeben dürfen. Gäste behalten immer das feste Limit von 5000.",
+      "unlimited": "Unbegrenzt",
+      "limitLabel": "Limit (Anzahl Datenpunkte)",
+      "currentUnlimited": "Derzeit unbegrenzt.",
+      "currentLimit": "Derzeit auf {{value}} Datenpunkte begrenzt.",
+      "save": "Speichern",
+      "saving": "Wird gespeichert...",
+      "loading": "Limit wird geladen...",
+      "loadFailed": "Das Limit für Rohdatenpunkte konnte nicht geladen werden.",
+      "saved": "Limit für Rohdatenpunkte gespeichert.",
+      "saveFailed": "Das Limit für Rohdatenpunkte konnte nicht gespeichert werden.",
+      "invalid": "Geben Sie eine ganze Zahl von mindestens 1 ein."
+    },
+    "shutdownConfirmation": {
+      "title": "Herunterfahren bestätigen",
+      "description": "Ein Herunterfahren kann das Gerät nicht selbst bestätigen. Es gilt als erfolgreich, wenn das Gerät nach der Bestätigung des Befehls so lange keinen Heartbeat gesendet hat.",
+      "modeLabel": "Modus",
+      "modeIntervals": "Heartbeat-Intervalle",
+      "modeSeconds": "Feste Zeitspanne",
+      "intervalsLabel": "Heartbeat-Intervalle",
+      "secondsLabel": "Zeitspanne (Sekunden)",
+      "currentIntervals_one": "Derzeit {{count}} Heartbeat-Intervall.",
+      "currentIntervals_other": "Derzeit {{count}} Heartbeat-Intervalle.",
+      "currentSeconds": "Derzeit eine feste Zeitspanne von {{value}} s.",
+      "shorterThanHeartbeat": "Diese Zeitspanne ist kürzer als ein Heartbeat-Intervall (standardmäßig {{interval}} s). Ein Gerät, das noch läuft, könnte als heruntergefahren gelten.",
+      "save": "Herunterfahren-Bestätigung speichern",
+      "saving": "Wird gespeichert...",
+      "loading": "Herunterfahren-Bestätigung wird geladen...",
+      "loadFailed": "Die Herunterfahren-Bestätigung konnte nicht geladen werden.",
+      "saved": "Herunterfahren-Bestätigung gespeichert.",
+      "saveFailed": "Die Herunterfahren-Bestätigung konnte nicht gespeichert werden.",
+      "invalidIntervals": "Geben Sie eine ganze Zahl von {{min}} bis {{max}} ein.",
+      "invalidSeconds": "Geben Sie eine Zahl von {{min}} bis {{max}} ein."
+    },
+    "notifications": {
+      "title": "Push-Benachrichtigungen",
+      "description": "Erhalten Sie eine Nachricht auf Smartphone oder Desktop, wenn eine Messbox startet, eine Messung beginnt oder endet, neue Läufe hochgeladen werden oder ein Fehler auftritt. Benachrichtigungen sind aus, bis Sie sie aktivieren, gelten für alle Geräte und werden über ntfy zugestellt.",
+      "loading": "Benachrichtigungseinstellungen werden geladen...",
+      "loadFailed": "Die Benachrichtigungseinstellungen konnten nicht geladen werden.",
+      "enabled": "Benachrichtigungen senden",
+      "eventsLegend": "Benachrichtigen bei",
+      "event": {
+        "box_started": "Messbox gestartet",
+        "measurement_started": "Messung gestartet",
+        "measurement_finished": "Messung beendet",
+        "runs_uploaded": "Neue Läufe hochgeladen",
+        "error": "Fehler"
+      },
+      "save": "Benachrichtigungseinstellungen speichern",
+      "saved": "Benachrichtigungseinstellungen gespeichert.",
+      "saveFailed": "Die Benachrichtigungseinstellungen konnten nicht gespeichert werden.",
+      "subscribeTitle": "In ntfy abonnieren",
+      "subscribeDescription": "Installieren Sie die ntfy-App und abonnieren Sie das folgende Thema auf dem Server {{server}}. Dasselbe Thema lässt sich auf mehreren Geräten nutzen. Die Nachrichten enthalten Geräte-ID, Ereignis und Uhrzeit und verlassen dieses Backend in Richtung ntfy-Server.",
+      "topicWarning": "Wer das Thema kennt, kann die Benachrichtigungen mitlesen. Halten Sie es geheim und ersetzen Sie es, wenn es bekannt wird.",
+      "topicLabel": "Ihr ntfy-Thema",
+      "copy": "Thema kopieren",
+      "copied": "Thema kopiert.",
+      "copyFailed": "Das Thema konnte nicht kopiert werden.",
+      "sendTest": "Testbenachrichtigung senden",
+      "testSent": "Testbenachrichtigung gesendet.",
+      "testRateLimited": "Bitte einige Sekunden warten, bevor eine weitere Testbenachrichtigung gesendet wird.",
+      "testFailed": "Die Testbenachrichtigung konnte nicht gesendet werden.",
+      "regenerate": "Thema neu erzeugen",
+      "regenerateConfirm": "Das aktuelle Thema funktioniert danach nicht mehr, und Sie müssen das neue in ntfy abonnieren. Fortfahren?",
+      "regenerated": "Neues Thema erzeugt. Abonnieren Sie es in ntfy.",
+      "regenerateFailed": "Das Thema konnte nicht neu erzeugt werden."
+    }
+  },
+  "campaigns": {
+    "noRuns": "Keine Läufe",
+    "loadFailed": "Kampagnen konnten nicht geladen werden (Status {{status}})"
+  },
+  "commandStatus": {
+    "state": {
+      "queued": "Wartet auf Zustellung",
+      "delivered": "Gesendet, wartet auf Gerät",
+      "received": "Empfangen",
+      "success": "Erfolgreich",
+      "failed": "Fehlgeschlagen",
+      "not_applicable": "Nicht anwendbar",
+      "promoted": "Übernommen",
+      "removed": "Entfernt",
+      "expired": "Abgelaufen"
+    },
+    "step": {
+      "queued": "In Warteschlange",
+      "sent": "Gesendet",
+      "received": "Empfangen",
+      "applied": "Angewendet",
+      "offline": "Offline",
+      "stillOnline": "Noch online",
+      "result": "Ergebnis",
+      "offlineProgress": "Offline {{missed}}/{{required}}",
+      "offlineProgressTime": "Offline {{elapsed}} / {{required}}"
+    },
+    "progressOf": "Fortschritt von {{name}}",
+    "kind": {
+      "config": "Konfiguration",
+      "command": "Befehl"
+    },
+    "awaitingOffline": "Wartet darauf, dass das Gerät offline geht",
+    "shutdownInfo": {
+      "label": "Wie das Ergebnis ermittelt wird",
+      "intro": {
+        "pending": "Ein Gerät kann ein Herunterfahren nicht bestätigen, weil es ausgeschaltet ist. Das Ergebnis wird daher aus ausbleibenden Heartbeats abgeleitet.",
+        "pendingProgress": "Ein Gerät kann ein Herunterfahren nicht bestätigen, weil es ausgeschaltet ist. Das Ergebnis wird daher aus ausbleibenden Heartbeats abgeleitet. Bisher sind {{missed}} von {{required}} Heartbeat-Intervallen ohne Heartbeat vergangen.",
+        "pendingProgressTime": "Ein Gerät kann ein Herunterfahren nicht bestätigen, weil es ausgeschaltet ist. Das Ergebnis wird daher aus ausbleibenden Heartbeats abgeleitet. Bisher sind {{elapsed}} von {{required}} ohne Heartbeat vergangen.",
+        "success": "Ein Gerät kann ein Herunterfahren nicht bestätigen, weil es ausgeschaltet ist. Danach ist kein Heartbeat mehr eingegangen, daher gilt das Herunterfahren als erfolgreich.",
+        "failed": "Ein Gerät kann ein Herunterfahren nicht bestätigen, weil es ausgeschaltet ist. Das Gerät hat nach der Bestätigung weiter Heartbeats gesendet, daher gilt das Herunterfahren als fehlgeschlagen."
+      },
+      "rule": "Das Herunterfahren gilt als erfolgreich, wenn nach der Bestätigung des Befehls durch das Gerät {{required}} Heartbeat-Intervalle lang ({{interval}} je Intervall, insgesamt {{total}}) kein Heartbeat eingegangen ist. Hat das Gerät nach der Bestätigung noch {{failHeartbeats}} Heartbeats gesendet, gilt das Herunterfahren als fehlgeschlagen.",
+      "ruleTime": "Das Herunterfahren gilt als erfolgreich, wenn nach der Bestätigung des Befehls durch das Gerät {{total}} lang kein Heartbeat eingegangen ist. Hat das Gerät nach der Bestätigung noch {{failHeartbeats}} Heartbeats gesendet, gilt das Herunterfahren als fehlgeschlagen."
+    },
+    "loadFailed": "Der Befehlsstatus konnte nicht geladen werden",
+    "deleteShown": "Angezeigte löschen",
+    "deleteShownFailed": "Die angezeigten Befehle konnten nicht gelöscht werden"
+  },
+  "gpsFix": {
+    "title": "GPS-Fix finden",
+    "hint": "Starten Sie einen Live-Diagnoselauf auf einem Gerät, positionieren Sie dann dessen Antenne um und beobachten Sie die Satellitenanzahl, um eine gute Montageposition zu finden.",
+    "loadingDevices": "Geräte werden geladen...",
+    "noDevices": "Keine registrierten Geräte gefunden.",
+    "runGroup": "GPS-Fix-Lauf",
+    "noRunActive": "Kein Lauf aktiv. Drücken Sie Start, um zu beginnen.",
+    "satellites": "Satelliten",
+    "fix": "Fix",
+    "yes": "Ja",
+    "no": "Nein",
+    "elapsed": "Verstrichen",
+    "devicesLoadFailed": "Geräte konnten nicht geladen werden",
+    "statusLoadFailed": "Status des GPS-Fix-Tests konnte nicht geladen werden",
+    "queueFailed": "{{command}} konnte nicht eingereiht werden"
+  },
+  "campaignRuns": {
+    "updateFailed": "Die Läufe der Kampagne konnten nicht aktualisiert werden",
+    "columns": {
+      "run": "Lauf",
+      "device": "Gerät",
+      "mission": "Mission",
+      "start": "Start",
+      "campaign": "Kampagne"
+    },
+    "selectRun": "Lauf {{runId}} von {{deviceId}} auswählen",
+    "noRuns": "Keine Läufe.",
+    "pagination": "Seite {{page}} von {{totalPages}} ({{count}} Läufe)",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "runsOf": "Läufe von {{name}}",
+    "membersTitle": "Läufe in dieser Kampagne",
+    "removeSelected": "Auswahl entfernen",
+    "addTitle": "Läufe hinzufügen",
+    "includeOthers": "Läufe anderer Kampagnen einbeziehen",
+    "candidatesCaption": "Zum Hinzufügen verfügbare Läufe",
+    "addSelected": "Auswahl hinzufügen"
+  },
+  "adminUsers": {
+    "title": "Benutzerverwaltung",
+    "subtitle": "Dashboard-Konten erstellen und verwalten. Nur für Superuser.",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "superuser": "Superuser",
+    "createUser": "Benutzer erstellen",
+    "creating": "Wird erstellt...",
+    "createFailed": "Benutzer konnte nicht erstellt werden",
+    "updateFailed": "Benutzer konnte nicht aktualisiert werden",
+    "deleteFailed": "Benutzer konnte nicht gelöscht werden",
+    "loadFailed": "Benutzer konnten nicht geladen werden",
+    "confirmDelete": "Benutzer \"{{email}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
+    "you": "(Sie)",
+    "yes": "Ja",
+    "no": "Nein",
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "selfPermissions": "Sie können Ihre eigenen Berechtigungen hier nicht ändern",
+    "selfDeactivate": "Sie können sich hier nicht selbst deaktivieren",
+    "selfDelete": "Sie können sich hier nicht selbst löschen",
+    "revokeAdmin": "Admin entziehen",
+    "makeAdmin": "Zum Admin machen",
+    "deactivate": "Deaktivieren",
+    "activate": "Aktivieren",
+    "delete": "Löschen",
+    "loading": "Benutzer werden geladen...",
+    "noUsers": "Keine Benutzer gefunden.",
+    "columns": {
+      "id": "ID",
+      "status": "Status",
+      "actions": "Aktionen"
+    },
+    "pagination_one": "Seite {{page}} von {{totalPages}} ({{count}} Benutzer)",
+    "pagination_other": "Seite {{page}} von {{totalPages}} ({{count}} Benutzer)",
+    "previous": "Zurück",
+    "next": "Weiter"
+  },
+  "adminCampaigns": {
+    "title": "Kampagnenverwaltung",
+    "subtitle": "Fasst Läufe zu Kampagnen zusammen, innerhalb derer die öffentliche Karte aggregiert. Der Zeitraum einer Kampagne ergibt sich aus ihren Läufen. Nur für Superuser.",
+    "name": "Name",
+    "namePlaceholder": "sommer-2026",
+    "period": "Zeitraum",
+    "actions": "Aktionen",
+    "createCampaign": "Kampagne erstellen",
+    "creating": "Wird erstellt...",
+    "createFailed": "Kampagne konnte nicht erstellt werden",
+    "updateFailed": "Kampagne konnte nicht aktualisiert werden",
+    "deleteFailed": "Kampagne konnte nicht gelöscht werden",
+    "loadFailed": "Kampagnen konnten nicht geladen werden",
+    "confirmDelete": "Kampagne \"{{name}}\" löschen? Dies kann nicht rückgängig gemacht werden.",
+    "save": "Speichern",
+    "saving": "Wird gespeichert...",
+    "cancel": "Abbrechen",
+    "hideRuns": "Läufe ausblenden",
+    "manageRuns": "Läufe verwalten",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "loading": "Kampagnen werden geladen...",
+    "noCampaigns": "Keine Kampagnen konfiguriert."
+  },
+  "runs": {
+    "title": "Messläufe",
+    "subtitle": "Jede Fahrt und jeder Flug, die ein Gerät aufgezeichnet hat. Als Altbestand markierte Läufe wurden pro Gerät, Missionstyp und Tag aus Daten rekonstruiert, die vor der Einführung von Läufen gespeichert wurden.",
+    "loadFailed": "Läufe konnten nicht geladen werden.",
+    "loadCampaignsFailed": "Kampagnen konnten nicht geladen werden.",
+    "filters": {
+      "deviceId": "Geräte-ID",
+      "devicePlaceholder": "Nach Gerät filtern...",
+      "missionType": "Missionstyp",
+      "all": "Alle",
+      "campaign": "Kampagne",
+      "allRuns": "Alle Läufe",
+      "unassigned": "Nicht zugeordnet",
+      "from": "Gestartet ab",
+      "to": "Gestartet bis"
+    },
+    "columns": {
+      "run": "Lauf",
+      "device": "Gerät",
+      "mission": "Mission",
+      "end": "Ende",
+      "meanRsrp": "Mittl. RSRP",
+      "meanRsrq": "Mittl. RSRQ",
+      "meanSinr": "Mittl. SINR",
+      "campaign": "Kampagne"
+    },
+    "sort": {
+      "start": "Start",
+      "duration": "Dauer",
+      "point_count": "Punkte"
+    },
+    "duration": {
+      "hoursMinutes": "{{hours}} h {{minutes}} min",
+      "minutesSeconds": "{{minutes}} min {{seconds}} s",
+      "seconds": "{{seconds}} s"
+    },
+    "legacy": "Altbestand",
+    "showOnMap": "Auf Karte zeigen",
+    "noRuns": "Keine Läufe gefunden.",
+    "pagination_one": "Seite {{page}} von {{totalPages}} ({{count}} Lauf)",
+    "pagination_other": "Seite {{page}} von {{totalPages}} ({{count}} Läufe)",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "bulk": {
+      "selected": "{{count}} ausgewählt",
+      "edit": "Auswahl bearbeiten",
+      "clear": "Auswahl aufheben"
+    },
+    "selectAll": "Alle Läufe auf dieser Seite auswählen",
+    "selectRun": "Lauf {{run}} von {{deviceId}} auswählen",
+    "editRun": "Lauf {{run}} bearbeiten",
+    "deleteRun": "Lauf {{run}} löschen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "trash": "Papierkorb"
+  },
+  "missionStatus": {
+    "title": "Missionsstatus",
+    "refresh": "Aktualisieren",
+    "loading": "Heartbeat-Daten werden geladen...",
+    "loadFailed": "Heartbeat-Daten konnten nicht geladen werden",
+    "loadFailedWithReason": "Heartbeat-Daten konnten nicht geladen werden: {{reason}}",
+    "noDevices": "Noch keine Geräte registriert.",
+    "selectDevice": "Wählen Sie ein Gerät, um dessen Status zu sehen.",
+    "noHeartbeat": "{{deviceId}} hat noch keinen Heartbeat gesendet.",
+    "runPhase": "Laufphase",
+    "phase": {
+      "recovering_pending_data": "Ausstehende Daten werden wiederhergestellt",
+      "waiting_for_gps_fix": "Warten auf GPS-Fix",
+      "waiting_for_movement": "Warten auf Bewegung",
+      "manual_mode_idle": "Leerlauf im manuellen Modus",
+      "recovery_idle": "Leerlauf (Wiederherstellung)",
+      "starting_up": "Startet",
+      "stopping": "Wird beendet",
+      "active_measuring": "Messung läuft",
+      "finalizing": "Abschluss",
+      "done": "Fertig",
+      "shutting_down": "Fährt herunter",
+      "rebooting": "Startet neu",
+      "critical_error": "Kritischer Fehler"
+    },
+    "shuttingDownBanner": "Das Gerät fährt herunter - die Verbindung bricht in Kürze ab.",
+    "rebootingBanner": "Das Gerät startet neu - es verbindet sich wieder, sobald der Start abgeschlossen ist.",
+    "criticalErrorBanner": "Kritischer Fehler: Das Gerät befindet sich im Wartungsmodus und muss per SSH untersucht werden.",
+    "recoveryBanner": "Das Gerät hat sich nach einem Absturz wiederhergestellt und wartet im Leerlauf, bis die Messung wieder gestartet wird.",
+    "criticalErrorDetails": "Derselbe Fehler {{count}}-mal, {{reboots}} Neustarts in Folge, Aktion: {{action}}",
+    "gps": {
+      "unknown": "Unbekannt",
+      "fixAcquired": "Fix erhalten",
+      "noFix": "Kein Fix",
+      "sats": "{{count}} Sat."
+    },
+    "gauge": {
+      "empty": "Noch keine Datenpunkte",
+      "summary": "{{valid}} % gültig, {{invalid}} % ungültig"
+    },
+    "tiles": {
+      "latestHeartbeat": "Letzter Heartbeat",
+      "gpsFix": "GPS-Fix",
+      "total": "Gesamt",
+      "valid": "Gültig",
+      "invalid": "Ungültig",
+      "pendingFiles": "Ausstehende Dateien",
+      "diskFree": "Freier Speicher",
+      "state": "Status",
+      "mode": "Modus",
+      "noValue": "–"
+    },
+    "datapoints": "Datenpunkte",
+    "remoteCommands": "Fernbefehle",
+    "queued": "Befehl eingereiht, wird mit dem nächsten Heartbeat gesendet",
+    "queueFailed": "Befehl konnte nicht eingereiht werden",
+    "queueFailedWithReason": "Befehl konnte nicht eingereiht werden: {{reason}}",
+    "modeSwitchRebootFailed": "Der Moduswechsel wurde eingereiht, aber der Neustart konnte nicht eingereiht werden. {{reason}}",
+    "confirm": "Bestätigen",
+    "confirmTitle": "{{action}} auf {{deviceId}}?",
+    "rebootAfterwards": "Anschließend neu starten",
+    "offlineHint": "Das Gerät ist offline. Der Befehl bleibt 24 Stunden eingereiht und wird mit dem nächsten Heartbeat gesendet.",
+    "commands": {
+      "start": {
+        "description": "Die Warteschleife verlassen und sofort mit der Messung beginnen."
+      },
+      "stop": {
+        "description": "Den aktuellen Messlauf stoppen. Das Gerät schließt die Daten ab, lädt sie hoch, fährt herunter und startet einmalig im manuellen Modus."
+      },
+      "forceUpload": {
+        "description": "Alle ausstehenden Messdateien jetzt hochladen."
+      },
+      "reboot": {
+        "description": "Das Gerät neu starten."
+      },
+      "shutdown": {
+        "description": "Das Gerät herunterfahren. Es muss anschließend manuell wieder eingeschaltet werden."
+      },
+      "switchToAuto": {
+        "description": "Den Startmodus auf Automatikmodus umstellen. Gilt erst beim nächsten Start."
+      },
+      "switchToManual": {
+        "description": "Den Startmodus auf manuellen Modus umstellen. Gilt erst beim nächsten Start."
+      }
+    },
+    "commandStatus": {
+      "title": "Befehlsstatus",
+      "empty": "Noch keine Befehle"
+    },
+    "mode": {
+      "manual": "Manueller Modus",
+      "auto": "Automatikmodus"
+    }
+  },
+  "remoteConfiguration": {
+    "title": "Fernkonfiguration",
+    "subtitle": "Konfigurationsüberschreibungen und Einmalbefehle für ein Gerät einreihen.",
+    "devices": {
+      "loading": "Geräte werden geladen...",
+      "none": "Keine registrierten Geräte gefunden.",
+      "select": "Wählen Sie ein Gerät, um es zu konfigurieren."
+    },
+    "groups": {
+      "measurement_cycle": "Messzyklus",
+      "movement_detection": "Bewegungserkennung vor dem Start",
+      "latency_tests": "Latenztests",
+      "backend_operation": "Backend und Betrieb",
+      "pipeline_monitoring": "Pipeline-Überwachung",
+      "risky": "Erweitert - Hardware"
+    },
+    "fields": {
+      "collector_capture_gate": {
+        "label": "Aufnahme-Auslöser",
+        "description": "Legt fest, wann ein Datenpunkt aufgenommen wird. `distance` misst nach einer zurückgelegten Strecke, `time` in festem Zeitabstand, unabhängig von der Bewegung. Die Erkennung von Stillstand und Sessionende bleibt davon unberührt."
+      },
+      "collector_position_threshold": {
+        "label": "Positionsschwelle",
+        "description": "Strecke in Metern, die das Fahrzeug seit der letzten Messung zurückgelegt haben muss, damit im Modus `distance` eine neue Messung ausgelöst wird. Kleine Werte liefern eine dichtere räumliche Abdeckung, aber mehr Daten und mehr Modem-Abfragen. Zu kleine Werte können im Bereich der GPS-Ungenauigkeit liegen und dann Rauschen als Bewegung zählen.",
+        "dependency": "Wirkt nur bei Aufnahme-Auslöser `distance`."
+      },
+      "collector_capture_interval_s": {
+        "label": "Aufnahmeintervall",
+        "description": "Abstand in Sekunden zwischen zwei Messungen im Modus `time`. Im Modus `distance` hat der Wert keine Wirkung. Er bestimmt direkt die zeitliche Auflösung der Messreihe.",
+        "dependency": "Wirkt nur bei Aufnahme-Auslöser `time`."
+      },
+      "idle_threshold_s": {
+        "label": "Leerlaufschwelle",
+        "description": "Zeit in Sekunden ohne erkannte Bewegung, nach der die Session beendet wird. Danach werden die Daten finalisiert und hochgeladen, und das Gerät fährt je nach Konfiguration herunter. Ein zu kleiner Wert beendet Läufe schon an Ampeln oder im Stau, ein zu großer hält das Gerät unnötig lange wach. `0` schaltet das Leerlaufende ab: Der Lauf endet dann nur noch durch einen Befehl, ein Herunterfahren oder einen Stromausfall, und das Lauf-Log wächst bis dahin weiter. Das Leerlaufende gibt es nur im Automatikmodus, in anderen Modi hat der Wert keine Wirkung."
+      },
+      "collector_max_wait_for_first_fix": {
+        "label": "Max. Wartezeit auf ersten GPS-Fix",
+        "description": "Maximale Wartezeit in Sekunden auf den ersten GPS-Fix, bevor der Lauf ohne Messdaten abgebrochen wird. Der Wert begrenzt den Start eines Laufs. Bei schlechtem Empfang, etwa nach einem Kaltstart in einer Garage, braucht der erste Fix länger."
+      },
+      "collector_wait_log_interval": {
+        "label": "Log-Intervall beim Warten",
+        "description": "Abstand in Sekunden zwischen den Log-Meldungen, solange auf den ersten GPS-Fix gewartet wird. Der Wert beeinflusst nur die Menge der Logeinträge, nicht das Messverhalten. Er hilft dabei, die Logdatei bei langem Warten klein zu halten."
+      },
+      "collector_gps_enabled": {
+        "label": "GPS aktiviert",
+        "description": "Schaltet die GPS-Auswertung im Collector ein oder aus. Bei `false` entfallen Fix-Wartezeit und Positionsabgleich, und die Messungen laufen ohne Positionsbezug. Das ist für Messungen ohne Fahrt oder bei defektem Empfänger gedacht."
+      },
+      "collector_gps_disabled_poll_interval_s": {
+        "label": "Messintervall ohne GPS",
+        "description": "Abstand in Sekunden zwischen den Messungen, solange GPS deaktiviert ist. Ohne GPS gibt es keine Fixes, die den Takt vorgeben, daher bestimmt dieser Wert die Messfrequenz. Er hat nur Wirkung bei `collector_gps_enabled = false`.",
+        "dependency": "Wirkt nur bei `collector_gps_enabled = false`."
+      },
+      "movement_gate_poll_interval_s": {
+        "label": "Abfrageintervall",
+        "description": "Abstand in Sekunden, in dem der Bewegungs-Check vor dem Lauf die GPS-Position prüft. Lange Abstände sparen Strom, verzögern aber den Start nach der Abfahrt. Der Check nutzt nur den GNSS-Empfänger und nicht das Modem."
+      },
+      "movement_gate_movement_threshold": {
+        "label": "Bewegungsschwelle",
+        "description": "Strecke in Metern zwischen zwei Prüfungen, ab der das Fahrzeug als in Bewegung gilt. Er muss größer sein als die typische GPS-Ungenauigkeit im Stand, sonst startet der Lauf fälschlich. Zu große Werte verzögern den Start bei langsamer Fahrt."
+      },
+      "movement_gate_confirmations_required": {
+        "label": "Erforderliche Bestätigungen",
+        "description": "Anzahl der Prüfungen in Folge, die Bewegung bestätigen müssen, bevor der Lauf startet. Höhere Werte schützen vor Fehlstarts durch GPS-Drift, verzögern aber den Beginn. Zusammen mit dem Prüfintervall ergibt sich die Mindestzeit bis zum Start."
+      },
+      "movement_gate_home_latitude": {
+        "label": "Heimat-Breitengrad",
+        "description": "Breitengrad der Garage oder des Heimatstandorts. Sind Breiten- und Längengrad gesetzt, startet ein Lauf nur, wenn sich das Fahrzeug von dieser Position entfernt hat. Beide Felder müssen gemeinsam gesetzt oder gemeinsam `null` sein."
+      },
+      "movement_gate_home_longitude": {
+        "label": "Heimat-Längengrad",
+        "description": "Längengrad der Garage oder des Heimatstandorts. Er wirkt nur zusammen mit dem Breitengrad. `null` hebt die Heimatpositions-Prüfung auf, dann zählt nur die Bewegung."
+      },
+      "movement_gate_home_departure_threshold": {
+        "label": "Abfahrtsabstand zur Heimat",
+        "description": "Mindestabstand in Metern zur Heimatposition, ab dem das Fahrzeug als abgefahren gilt. Er wirkt nur, wenn Breiten- und Längengrad gesetzt sind. Ein zu kleiner Wert löst schon durch GPS-Drift in der Garage aus."
+      },
+      "latency_test_enabled": {
+        "label": "Latenztest aktiviert",
+        "description": "Schaltet die aktiven Latenzmessungen mit flent ein oder aus. Ohne konfigurierten Testserver und serverseitige Gegenstelle bleibt der Test wirkungslos. Der Lasttest sättigt den Link und verbraucht Datenvolumen und Akku."
+      },
+      "latency_test_baseline_interval_s": {
+        "label": "Basisintervall",
+        "description": "Abstand in Sekunden zwischen den Ping-Tests auf der unbelasteten Leitung. Diese Tests sind günstig und liefern die Grundlatenz. Kürzere Abstände erhöhen die zeitliche Auflösung."
+      },
+      "latency_test_load_interval_s": {
+        "label": "Lastintervall",
+        "description": "Abstand in Sekunden zwischen den Latenztests unter Last. Jeder Test sättigt die Leitung für seine gesamte Laufzeit, daher ist der Abstand deutlich größer als beim Basistest. Kurze Abstände verbrauchen Datenvolumen und Akku."
+      },
+      "latency_test_poll_interval_s": {
+        "label": "Abfrageintervall",
+        "description": "Abstand in Sekunden, in dem geprüft wird, ob einer der beiden Tests fällig ist. Er bestimmt die zeitliche Genauigkeit, mit der Tests starten. Er löst keine Tests aus und ist nur die Schrittweite der Prüfung."
+      },
+      "heartbeat_interval_s": {
+        "label": "Heartbeat-Intervall",
+        "description": "Abstand in Sekunden zwischen den Statusmeldungen ans Backend. Der Heartbeat ist auch der Kanal, über den Overrides und Kommandos beim Gerät ankommen. Kurze Abstände geben schnelle Reaktion, kosten aber Datenvolumen."
+      },
+      "device_mission_type": {
+        "label": "Missionsart",
+        "description": "Missionsart des Geräts, `ground` für Bodenfahrzeuge und `drone` für Drohnen. Sie wird in jedem Datenpunkt mitgeschrieben. Das Backend kann damit Messungen nach Einsatzart trennen, das Messverhalten ändert sich nicht."
+      },
+      "display_enabled": {
+        "label": "Display aktiviert",
+        "description": "Schaltet das OLED-Statusdisplay ein oder aus. Bei `false` läuft das Gerät mit einem Display, das nichts tut. Das ist nützlich, wenn kein Display angeschlossen ist."
+      },
+      "display_refresh_interval_s": {
+        "label": "Display-Aktualisierung",
+        "description": "Abstand in Sekunden, in dem das Display neu gezeichnet wird. Kürzere Abstände zeigen den Zustand aktueller an, belasten aber den I2C-Bus. Der Wert hat nur Wirkung bei aktiviertem Display."
+      },
+      "day_end_threshold_s": {
+        "label": "Tagesende-Schwelle",
+        "description": "Zeitgrenze für das Tagesende. Der Wert wird auf dem Gerät gespeichert, hat aber noch keine Funktion, weil der Tagesend-Cutoff noch nicht implementiert ist. Er kann schon vorab gesetzt werden."
+      },
+      "run_status_empty_captures_until_pipeline_broken": {
+        "label": "Leere Aufnahmen bis Pipeline als defekt gilt",
+        "description": "Anzahl aufeinanderfolgender leerer Messungen bei Bewegung, ab der das Backend die Messkette als defekt meldet. Kleine Werte melden Störungen schnell, aber auch bei kurzen Funklöchern. Der Wert gilt nur, solange sich das Fahrzeug bewegt."
+      },
+      "modem_mode": {
+        "label": "Modem-Modus",
+        "description": "Abfragemodus des Modems. `serving_cell` liest die Daten der aktuellen Zelle, `sa_scan` scannt nur 5G-SA-Zellen. Für `sa_scan` muss das Modem vorher per AT-Konsole manuell konfiguriert sein, sonst liefert es keine Daten."
+      },
+      "modem_sim_unlock_poll_attempts": {
+        "label": "SIM-Entsperr-Versuche",
+        "description": "Anzahl der Versuche, nach der PIN-Eingabe auf eine entsperrte SIM zu warten. Mit zu wenigen Versuchen scheitert der Start bei langsamer SIM. Zu viele verzögern ihn bei defekter SIM."
+      },
+      "modem_sim_unlock_poll_interval": {
+        "label": "SIM-Entsperr-Intervall",
+        "description": "Abstand in Sekunden zwischen diesen Versuchen. Zusammen mit der Versuchszahl ergibt sich die maximale Wartezeit auf die SIM."
+      },
+      "gnss_receiver_retries": {
+        "label": "GNSS-Wiederholungen",
+        "description": "Anzahl der Wiederholungen bei fehlgeschlagenen Lesezugriffen auf den GNSS-Empfänger. Ein zu kleiner Wert macht den Collector anfällig für kurze Aussetzer der seriellen Verbindung. Ein zu großer verzögert die Fehlermeldung bei defektem Empfänger."
+      },
+      "gnss_receiver_retry_delay_s": {
+        "label": "GNSS-Wiederholungspause",
+        "description": "Pause in Sekunden zwischen diesen Wiederholungen. Mit der Zahl der Wiederholungen bestimmt sie, wie lange ein Lesefehler maximal toleriert wird."
+      },
+      "system_running_on_pi": {
+        "label": "Läuft auf Raspberry Pi",
+        "description": "Legt fest, ob Raspberry-Pi-Hardware (GPIO) angesprochen wird. Auf `false` gesetzt, bleibt das Abschluss-Signal an das Gerät aus, und ein automatisches Herunterfahren über diesen Weg funktioniert nicht mehr. Auf einem echten Pi sollte es immer `true` sein."
+      }
+    },
+    "overrides": {
+      "title": "Konfigurationsüberschreibungen",
+      "pending_one": "{{count}} Änderung ausstehend",
+      "pending_other": "{{count}} Änderungen ausstehend",
+      "hint": "Unveränderte Felder behalten ihre aktuelle Einstellung. Overrides werden beim nächsten Start des Geräts wirksam.",
+      "setting": "Einstellung",
+      "current": "Aktuell",
+      "newValue": "Neuer Wert",
+      "fieldAria": "{{group}} {{label}}",
+      "resetField": "{{label}} zurücksetzen",
+      "reset": "Zurücksetzen",
+      "unchanged": "unverändert",
+      "notSetOption": "Nicht gesetzt (Wert zurücksetzen)",
+      "willReset": "Wird auf \"nicht gesetzt\" zurückgesetzt",
+      "range": "Bereich: {{min}} bis {{max}}",
+      "infoAria": "Info zu {{label}}",
+      "noEffectYet": "Hat aktuell noch keine Wirkung auf dem Gerät.",
+      "unsupported": "Dieser Einstellungstyp wird von dieser Version der Seite nicht unterstützt.",
+      "schemaLoading": "Einstellungen werden geladen...",
+      "invalid": "Markierte Einstellungen vor dem Senden korrigieren.",
+      "favorite": {
+        "title": "Favoriten",
+        "toggleAria": "Favorit: {{label}}",
+        "add": "Zu Favoriten hinzufügen",
+        "remove": "Aus Favoriten entfernen"
+      }
+    },
+    "oneShot": {
+      "title": "Einmalbefehle"
+    },
+    "status": {
+      "title": "Befehlsstatus",
+      "removeQueued": "Eingereihte entfernen",
+      "loading": "Befehle werden geladen...",
+      "empty": "Für dieses Gerät ist noch nichts eingereiht."
+    },
+    "comms": {
+      "title": "Befehlskommunikation ({{count}})",
+      "hint": "An Geräte gesendete Befehle und Überschreibungen sowie die zurückgekommenen Bestätigungen.",
+      "allDevices": "Alle Geräte",
+      "empty": "Noch keine Kommunikation.",
+      "toDevice": "an Gerät",
+      "fromDevice": "vom Gerät",
+      "columns": {
+        "time": "Zeit",
+        "device": "Gerät",
+        "direction": "Richtung",
+        "type": "Typ",
+        "name": "Name",
+        "id": "ID",
+        "status": "Status",
+        "detail": "Detail"
+      }
+    },
+    "clearQueue": {
+      "title": "Eingereihte Elemente für {{deviceId}} entfernen?",
+      "removing": "Wird entfernt...",
+      "body_one": "Dadurch wird {{count}} eingereihtes Element für dieses Gerät entfernt - Konfigurationsüberschreibungen und ausstehende Einmalbefehle gleichermaßen. Dies kann nicht rückgängig gemacht werden.",
+      "body_other": "Dadurch werden alle {{count}} eingereihten Elemente für dieses Gerät entfernt - Konfigurationsüberschreibungen und ausstehende Einmalbefehle gleichermaßen. Dies kann nicht rückgängig gemacht werden."
+    },
+    "preview": {
+      "title": "Vorschau & Bestätigung",
+      "empty": "Noch keine Änderungen eingereiht.",
+      "config": "Konfiguration: {{field}} = {{value}}",
+      "command": "Befehl: {{command}}",
+      "remove": "Entfernen",
+      "send": "Senden & Bestätigen",
+      "selectDevice": "Wählen Sie zuerst ein Gerät."
+    },
+    "confirm": {
+      "title": "Änderungen für {{deviceId}} bestätigen",
+      "confirm": "Bestätigen"
+    },
+    "toast": {
+      "queueRemoved": "Eingereihte Elemente für {{deviceId}} entfernt.",
+      "changesSent": "Änderungen an {{deviceId}} gesendet."
+    },
+    "errors": {
+      "logLoad": "Befehlsprotokoll konnte nicht geladen werden",
+      "devicesLoad": "Geräte konnten nicht geladen werden",
+      "removeQueued": "Eingereihte Elemente konnten nicht entfernt werden",
+      "sendChanges": "Änderungen konnten nicht gesendet werden",
+      "favoriteSave": "Favoriten konnten nicht gespeichert werden",
+      "schemaLoad": "Einstellungen konnten nicht geladen werden"
+    },
+    "validation": {
+      "notNumber": "Zahl eingeben.",
+      "notInteger": "Ganze Zahl eingeben.",
+      "belowMin": "Muss mindestens {{min}} sein.",
+      "aboveMax": "Darf höchstens {{max}} sein.",
+      "notAllowed": "Kein erlaubter Wert."
+    },
+    "warnings": {
+      "homeIncomplete": "Heimat-Breiten- und Längengrad sollten gemeinsam gesetzt oder gemeinsam entfernt werden; das Gerät kann eines ohne das andere ablehnen."
+    },
+    "riskyConfirm": {
+      "title": "Weißt du, was du tust?",
+      "body": "Falsche Werte für diese Einstellungen können das Gerät unbrauchbar machen, sodass es nur noch vor Ort repariert werden kann.",
+      "confirm": "Ja, fortfahren"
+    },
+    "values": {
+      "notSet": "nicht gesetzt",
+      "true": "true",
+      "false": "false"
+    }
+  },
+  "testing": {
+    "title": "Testvisualisierung",
+    "subtitle": "Ergebnisse manueller Integrationstests visualisieren und überwachen",
+    "refresh": "Aktualisieren",
+    "never": "Nie",
+    "notAvailable": "k. A.",
+    "duration": {
+      "milliseconds": "{{ms}} ms",
+      "seconds": "{{seconds}} s",
+      "minutesSeconds": "{{minutes}} min {{seconds}} s"
+    },
+    "testType": {
+      "modem": "Modem",
+      "gps": "GPS",
+      "collector": "Collector",
+      "uploader": "Uploader",
+      "heartbeat": "Heartbeat"
+    },
+    "status": {
+      "passed": "bestanden",
+      "failed": "fehlgeschlagen",
+      "running": "läuft",
+      "skipped": "übersprungen"
+    },
+    "mode": {
+      "testing": "Test",
+      "production": "Produktion"
+    },
+    "filters": {
+      "testType": "Testtyp",
+      "allTypes": "Alle Typen",
+      "status": "Status",
+      "allStatuses": "Alle Status",
+      "deviceId": "Geräte-ID",
+      "devicePlaceholder": "Nach Gerät filtern...",
+      "startDate": "Startdatum",
+      "endDate": "Enddatum"
+    },
+    "selectResult": "Testergebnis {{id}} auswählen",
+    "selectAll": "Alle Testergebnisse auf dieser Seite auswählen",
+    "loadingResults": "Testergebnisse werden geladen...",
+    "noResults": "Keine Testergebnisse gefunden. Testdaten erscheinen hier, sobald sie übermittelt wurden.",
+    "loadingSummary": "Zusammenfassung wird geladen...",
+    "columns": {
+      "id": "ID",
+      "testType": "Testtyp",
+      "status": "Status",
+      "device": "Gerät",
+      "executedAt": "Ausgeführt am",
+      "duration": "Dauer",
+      "type": "Typ",
+      "errorMessage": "Fehlermeldung"
+    },
+    "summary": {
+      "title": "Testzusammenfassung",
+      "totalTests": "Tests gesamt",
+      "passed": "Bestanden",
+      "failed": "Fehlgeschlagen",
+      "running": "Laufend",
+      "skipped": "Übersprungen",
+      "passRate": "Erfolgsquote",
+      "byTestType": "Nach Testtyp",
+      "stats": {
+        "total": "Gesamt: {{count}}",
+        "passed": "Bestanden: {{count}}",
+        "failed": "Fehlgeschlagen: {{count}}",
+        "running": "Laufend: {{count}}",
+        "skipped": "Übersprungen: {{count}}"
+      },
+      "recentFailures": "Letzte Fehlschläge",
+      "count": "Anzahl",
+      "noFailures": "Keine Fehlschläge im aktuellen Zeitraum.",
+      "recentExecutions": "Letzte Ausführungen",
+      "exec": {
+        "device": "Gerät: {{value}}",
+        "executed": "Ausgeführt: {{value}}",
+        "duration": "Dauer: {{value}}",
+        "error": "Fehler: {{value}}"
+      },
+      "noExecutions": "Keine letzten Ausführungen gefunden."
+    },
+    "results": "Testergebnisse",
+    "deleteSelected": "Auswahl löschen ({{count}})",
+    "deleteAll": "Alle löschen",
+    "confirmDeleteSelected_one": "{{count}} ausgewähltes Testergebnis löschen? Dies kann nicht rückgängig gemacht werden.",
+    "confirmDeleteSelected_other": "{{count}} ausgewählte Testergebnisse löschen? Dies kann nicht rückgängig gemacht werden.",
+    "confirmDeleteAll_one": "Wirklich {{count}} Testergebnis löschen? Dies kann nicht rückgängig gemacht werden.",
+    "confirmDeleteAll_other": "Wirklich alle {{count}} Testergebnisse löschen? Dies kann nicht rückgängig gemacht werden.",
+    "pagination_one": "Seite {{page}} von {{totalPages}} ({{count}} Ergebnis)",
+    "pagination_other": "Seite {{page}} von {{totalPages}} ({{count}} Ergebnisse)",
+    "previous": "Zurück",
+    "next": "Weiter",
+    "errors": {
+      "load": "Testergebnisse konnten nicht geladen werden",
+      "loadWithReason": "Testergebnisse konnten nicht geladen werden: {{reason}}",
+      "deleteSelected": "Ausgewählte Ergebnisse konnten nicht gelöscht werden",
+      "deleteSelectedWithReason": "Ausgewählte Ergebnisse konnten nicht gelöscht werden: {{reason}}",
+      "deleteAll": "Alle Ergebnisse konnten nicht gelöscht werden",
+      "deleteAllWithReason": "Alle Ergebnisse konnten nicht gelöscht werden: {{reason}}"
+    }
+  },
+  "map": {
+    "title": "Karte / Heatmap",
+    "subtitle": "Netzqualität (RSRP/RSRQ/SINR) sowie Latenz/Durchsatz nach Standort.",
+    "refresh": "Aktualisieren",
+    "loadFailed": "Messdaten konnten nicht geladen werden.",
+    "loadCampaignsFailed": "Kampagnen konnten nicht geladen werden.",
+    "exportFailed": "Export als {{format}} fehlgeschlagen.",
+    "exportOnlyMeasurement": "Der Export ist nur für RSRP/RSRQ/SINR verfügbar",
+    "exportOnlyHeatmap": "Der Export ist nur in der Heatmap-Ansicht verfügbar",
+    "export": "{{format}} exportieren",
+    "exporting": "Export läuft...",
+    "fullscreen": "Vollbild",
+    "exitFullscreen": "Vollbild beenden",
+    "filters": {
+      "metric": "Metrik",
+      "missionType": "Missionstyp",
+      "deviceId": "Geräte-ID",
+      "devicePlaceholder": "Nach Gerät filtern...",
+      "campaign": "Kampagne",
+      "noCampaigns": "Keine Kampagnen konfiguriert",
+      "allTime": "Gesamter Zeitraum",
+      "displayStyle": "Darstellung",
+      "heatmap": "Heatmap",
+      "points": "Punkte",
+      "opacity": "Deckkraft"
+    },
+    "runFilter": {
+      "runOnly": "Es wird nur Lauf {{runId}} angezeigt.",
+      "withDevice": "Es wird nur Lauf {{runId}} von {{deviceId}} angezeigt.",
+      "clear": "Lauffilter entfernen"
+    },
+    "hint": {
+      "points": "Mit gedrückter Umschalttaste ziehen, um alle Punkte in einem Rechteck auszuwählen (Umschalt-Klick schaltet einen einzelnen Punkt um). Mit gedrückter Strg-Taste ziehen, um auf ein Rechteck zu zoomen.",
+      "heatmap": "Mit gedrückter Strg-Taste ziehen, um auf ein Rechteck zu zoomen."
+    },
+    "selection": {
+      "title": "Ausgewählte Punkte ({{count}})",
+      "clear": "Leeren",
+      "statistics": "Auswahlstatistik",
+      "stats": {
+        "count": "Anzahl",
+        "min": "Min",
+        "max": "Max",
+        "mean": "Mittelwert",
+        "median": "Median",
+        "stdDev": "Std.-abw."
+      },
+      "columns": {
+        "device": "Gerät",
+        "test": "Test",
+        "started": "Gestartet",
+        "time": "Zeit"
+      },
+      "remove": "Aus Auswahl entfernen",
+      "export": "Auswahl als {{format}} exportieren",
+      "exportFailed": "Die Auswahl konnte nicht als {{format}} exportiert werden."
+    }
+  },
+  "runDialogs": {
+    "edit": {
+      "title": "Lauf bearbeiten",
+      "save": "Speichern",
+      "saving": "Wird gespeichert...",
+      "failed": "Der Lauf konnte nicht gespeichert werden.",
+      "deviceId": "Geräte-ID",
+      "runId": "Lauf-ID (vom Gerät vergeben)",
+      "name": "Name",
+      "missionType": "Missionstyp",
+      "campaign": "Kampagne",
+      "noCampaign": "Keine Kampagne"
+    },
+    "bulk": {
+      "title_one": "{{count}} Lauf bearbeiten",
+      "title_other": "{{count}} Läufe bearbeiten",
+      "apply": "Auf Auswahl anwenden",
+      "applying": "Wird angewendet...",
+      "failed": "Die Läufe konnten nicht aktualisiert werden.",
+      "hint": "Nur die ausgefüllten Felder werden bei allen ausgewählten Läufen geändert.",
+      "namePlaceholder": "Leer lassen, um die Namen beizubehalten",
+      "keepCurrent": "Beibehalten"
+    },
+    "delete": {
+      "title": "Lauf in den Papierkorb verschieben",
+      "confirm": "In den Papierkorb",
+      "deleting": "Wird verschoben...",
+      "failed": "Der Lauf konnte nicht in den Papierkorb verschoben werden.",
+      "body_one": "<run/> von Gerät {{deviceId}} in den Papierkorb verschieben? Der Lauf mit seiner {{count}} Messung und allen zugehörigen Latenzergebnissen wird überall ausgeblendet, bis ein Superuser ihn aus dem Papierkorb wiederherstellt.",
+      "body_other": "<run/> von Gerät {{deviceId}} in den Papierkorb verschieben? Der Lauf mit seinen {{count}} Messungen und allen zugehörigen Latenzergebnissen wird überall ausgeblendet, bis ein Superuser ihn aus dem Papierkorb wiederherstellt."
+    },
+    "deletePermanently": {
+      "title": "Lauf endgültig löschen",
+      "confirm": "Endgültig löschen",
+      "deleting": "Wird gelöscht...",
+      "failed": "Der Lauf konnte nicht gelöscht werden.",
+      "body_one": "<run/> von Gerät {{deviceId}} endgültig löschen? Dadurch werden der Lauf mit seiner {{count}} Messung und seinen {{latencyResults}} Latenzergebnissen entfernt. Dies kann nicht rückgängig gemacht werden.",
+      "body_other": "<run/> von Gerät {{deviceId}} endgültig löschen? Dadurch werden der Lauf mit seinen {{count}} Messungen und seinen {{latencyResults}} Latenzergebnissen entfernt. Dies kann nicht rückgängig gemacht werden."
+    }
+  },
+  "commands": {
+    "force-upload-now": "Upload erzwingen",
+    "shutdown-now": "Herunterfahren",
+    "reboot-now": "Neustart",
+    "sim-reset-now": "SIM zurücksetzen",
+    "mode-manual-now": "Manueller Modus",
+    "mode-waiting-now": "Manueller Modus",
+    "mode-auto-now": "Automatikmodus",
+    "start-measuring-now": "Messung starten",
+    "stop-measuring-now": "Messung stoppen",
+    "run-selftest-now": "Selbsttest starten",
+    "run-gps-fix-test-now": "GPS-Fix-Test starten",
+    "stop-gps-fix-test-now": "GPS-Fix-Test stoppen",
+    "promote-overrides-now": "Overrides übernehmen"
+  },
+  "runTrash": {
+    "title": "Papierkorb",
+    "subtitle": "Gelöschte Läufe bleiben hier mit allen Daten, bis sie wiederhergestellt oder endgültig gelöscht werden. Daten, die ein Gerät in einen Lauf im Papierkorb hochlädt, bleiben erhalten und ebenfalls im Papierkorb.",
+    "backToRuns": "Zurück zu den Läufen",
+    "loadFailed": "Der Papierkorb konnte nicht geladen werden.",
+    "restoreFailed": "Der Lauf konnte nicht wiederhergestellt werden.",
+    "empty": "Der Papierkorb ist leer.",
+    "columns": {
+      "run": "Lauf",
+      "device": "Gerät",
+      "mission": "Mission",
+      "start": "Start",
+      "points": "Punkte",
+      "latencyResults": "Latenzergebnisse",
+      "campaign": "Kampagne",
+      "deletedAt": "Gelöscht",
+      "deletedBy": "Gelöscht von"
+    },
+    "restore": "Wiederherstellen",
+    "restoreRun": "Lauf {{run}} wiederherstellen",
+    "deletePermanently": "Endgültig löschen",
+    "deleteRunPermanently": "Lauf {{run}} endgültig löschen",
+    "pagination_one": "Seite {{page}} von {{totalPages}} ({{count}} Lauf)",
+    "pagination_other": "Seite {{page}} von {{totalPages}} ({{count}} Läufe)",
+    "previous": "Zurück",
+    "next": "Weiter"
+  }
+}

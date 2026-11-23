@@ -1,0 +1,20 @@
+[Unit]
+Description=5G Measurement Backend - Flent test server (netserver + irtt)
+After=network.target
+
+[Service]
+# netserver and irtt both daemonize themselves; this unit just runs the
+# start script once and leaves the resulting processes running, rather than
+# tracking a single forked PID the traditional systemd way.
+Type=oneshot
+RemainAfterExit=yes
+# Dedicated non-root account — create once per host, see README.md's
+# "Production deployment" section.
+User=appuser
+Group=appgroup
+ExecStart=/opt/5g-measurement-backend/scripts/start_flent_server.sh
+Environment=PID_DIR=/run/flent-server
+RuntimeDirectory=flent-server
+
+[Install]
+WantedBy=multi-user.target
